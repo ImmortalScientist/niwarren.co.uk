@@ -1,0 +1,514 @@
+/*! HTML5 Boilerplate v5.3.0 | MIT License | https://html5boilerplate.com/ */
+
+/*
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+html {
+    color: white;
+    font-size: 1em;
+    line-height: 1.4;
+	background-color: #0059b3
+}
+
+/*
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ *
+ * These selection rule sets have to be separate.
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+    background: #4da6ff;
+    text-shadow: none;
+}
+
+::selection {
+    background: #4da6ff;
+    text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 2px solid #ffffff;
+    margin: 1em 0;
+    padding: 0;
+}
+
+/*
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+ */
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+    vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+    resize: vertical;
+}
+
+/* ==========================================================================
+   Browser Upgrade Prompt
+   ========================================================================== */
+
+.browserupgrade {
+    margin: 0.2em 0;
+    background: #0066cc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+/* ==========================================================================
+   Author's custom styles
+
+   Colours: Lightest:	#1a8cff
+          						#0066cc
+          						#0059b3	---	MAIN SITE BACKGROUND
+			      Darkest:	#004d99
+   ========================================================================== */
+
+
+h1 { color: white; font-size: 2.5em; }
+
+.wrapper {
+    width: 90%;
+    margin: 0 5%;
+}
+
+a {
+  color: white;
+}
+
+/* ++++++++++++++++++++++++
+    APPLIES ON ALL DEVICES
+   ++++++++++++++++++++++++ */
+
+/* IE FIX */
+ .ie7 .title {
+     padding-top: 20px;
+ }
+
+.header-container {
+    border-bottom: 10px solid #0066cc;
+}
+
+.footer-container{
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    border-top: 10px solid #0066cc;
+}
+
+.header-container,
+.footer-container {
+    background: #0059b3;
+}
+
+
+/* ++++++++++++++
+    MOBILE: Header
+   ++++++++++++++ */
+
+.header-container h1 {
+    font-size: 2.5em;
+    text-align: center;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    color: #ffffff;
+    list-style-type: none;
+}
+
+nav a {
+    display: block;
+    margin-bottom: 7px;
+    padding: 7px 0;
+
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    border-bottom: 4px solid #004d99;
+
+    color: #ffffff;
+    background: #004d99;
+}
+
+nav a:hover,
+nav a:visited {
+    color: #ffffff;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+nav a.buttonPageOpen {
+    border-bottom: 4px solid white;
+}
+
+.title {
+    display: block;
+    vertical-align: middle;
+    margin: 10px;
+}
+
+h1.title:hover{
+  text-decoration: underline;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* ++++++++++++++
+    MOBILE: Footer
+   ++++++++++++++ */
+
+   .footer-container footer {
+     color: #ffffff;
+   	text-align: center;
+   }
+
+   footer p {
+     position: absolute;
+     bottom: 0; left: 0; right: 0;
+     margin-top: 10px;
+     margin-bottom: 5px;
+   }
+
+   .footerbuttons {
+     font-weight: bold;
+     list-style-type: none;
+     width: 60%;
+     min-width: 150px;
+     left: 0; right: 0; margin: auto;
+     padding-bottom: 10px;
+     padding-left: 0;
+     margin-bottom: 15px;
+   }
+
+   .contactbutton {
+     display: block;
+     padding: 5px 0;
+     margin: 7px;
+     text-align: center;
+     text-decoration: none;
+     color: #ffffff;
+     background: #004d99;
+   }
+
+   footer ul a:hover {
+     text-decoration: underline;
+   }
+
+ /* ++++++++++++++
+     MOBILE: Main
+    ++++++++++++++ */
+
+    article a {
+      text-decoration: underline;
+    }
+
+
+
+/* ==========================================================================
+   Media Queries
+   ========================================================================== */
+
+@media only screen and (min-width: 480px) {
+
+/* ====================
+    INTERMEDIATE: Menu
+   ==================== */
+
+    nav a {
+        float: left;
+        width: 27%;
+        margin: 0 1.7%;
+        padding: 15px 2%;
+        margin-bottom: 0;
+    }
+
+    nav li:first-child a {
+        margin-left: 0;
+    }
+
+    nav li:last-child a {
+        margin-right: 0;
+    }
+
+    .footerbuttons {
+      width: 100%;
+      margin-bottom: 25px;
+    }
+
+    .contactbutton{
+      float: left;
+      width: calc(94.5% / 3);
+    }
+
+    footer ul a {
+      left: 0; right: 0;
+      margin: auto;
+    }
+
+
+/* ========================
+    INTERMEDIATE: IE Fixes
+   ======================== */
+
+    nav ul li {
+        display: inline;
+    }
+
+    .oldie nav a {
+        margin: 0 0.7%;
+    }
+}
+
+
+@media only screen and (min-width: 768px) {
+
+/* ====================
+    WIDE: CSS3 Effects
+   ==================== */
+
+
+/* ============
+    WIDE: Menu
+   ============ */
+
+    .header-container h1 {
+        float: left;
+        text-align: center;
+        top: 20%
+    }
+
+    nav {
+        float: right;
+        width: 55%;
+    }
+
+    nav a {
+      padding: 25px 2%;
+    }
+
+/* ============
+    WIDE: Main
+   ============ */
+
+    .main article {
+        width: 100%;
+    }
+
+
+
+}
+
+@media only screen and (min-width: 1140px) {
+
+/* ===============
+    Maximal Width
+   =============== */
+
+    .wrapper {
+        width: 1026px; /* 1140px - 10% for margins */
+        margin: 0 auto;
+    }
+
+}
+
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+/*
+ * Hide visually and from screen readers
+ */
+
+.hidden {
+    display: none !important;
+}
+
+/*
+ * Hide only visually, but have it available for screen readers:
+ * http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+ */
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+/*
+ * Extends the .visuallyhidden class to allow the element
+ * to be focusable when navigated to via the keyboard:
+ * https://www.drupal.org/node/897638
+ */
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+/*
+ * Hide visually and from screen readers, but maintain layout
+ */
+
+.invisible {
+    visibility: hidden;
+}
+
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+
+.clearfix:before,
+.clearfix:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+
+@media print,
+       (-webkit-min-device-pixel-ratio: 1.25),
+       (min-resolution: 1.25dppx),
+       (min-resolution: 120dpi) {
+    /* Style adjustments for high resolution devices */
+}
+
+/* ==========================================================================
+   Print styles.
+   ========================================================================== */
+
+@media print {
+    *,
+    *:before,
+    *:after,
+    *:first-letter,
+    *:first-line {
+        background: transparent !important;
+        color: #000 !important; /* Black prints faster:
+                                   http://www.sanbeiji.com/archives/953 */
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+
+    /*
+     * Don't show links that are fragment identifiers,
+     * or use the `javascript:` pseudo protocol
+     */
+
+    a[href^="#"]:after,
+    a[href^="javascript:"]:after {
+        content: "";
+    }
+
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    /*
+     * Printing Tables:
+     * http://css-discuss.incutio.com/wiki/Printing_Tables
+     */
+
+    thead {
+        display: table-header-group;
+    }
+
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+
+    img {
+        max-width: 100% !important;
+    }
+
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}
