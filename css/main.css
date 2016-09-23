@@ -219,7 +219,7 @@ a {
      left: 0; right: 0; margin: auto;
      padding-bottom: 10px;
      padding-left: 0;
-     margin-bottom: 15px;
+     margin-bottom: 2px;
    }
 
    .contactbutton {
@@ -279,7 +279,7 @@ a {
 
     .contactbutton{
       float: left;
-      width: calc(94.5% / 3);
+      width: calc(90.1% / 3);
     }
 
     footer ul a {
@@ -333,9 +333,13 @@ a {
    ============ */
 
     .main article {
-        width: 100%;
+      width: 100%;
     }
 
+    span img {
+      float: right;
+      margin: 0 0 10px 10px;
+    }
 
 
 }
