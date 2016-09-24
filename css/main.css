@@ -113,6 +113,16 @@ a {
   color: white;
 }
 
+.Site {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.Site-content {
+  flex: 1;
+}
+
 /* ++++++++++++++++++++++++
     APPLIES ON ALL DEVICES
    ++++++++++++++++++++++++ */
@@ -122,12 +132,13 @@ a {
      padding-top: 20px;
  }
 
+
 .header-container {
     border-bottom: 10px solid #0066cc;
 }
 
 .footer-container{
-    position: fixed;
+    position: relative;
     bottom: 0; left: 0; right: 0;
     border-top: 10px solid #0066cc;
 }
@@ -201,7 +212,7 @@ a {
 
    .footer-container footer {
      color: #ffffff;
-   	text-align: center;
+   	 text-align: center;
    }
 
    footer p {
@@ -253,7 +264,7 @@ a {
 @media only screen and (min-width: 480px) {
 
 /* ====================
-    INTERMEDIATE: Menu
+    INTERMEDIATE: Menu & Footer
    ==================== */
 
     nav a {
@@ -285,6 +296,10 @@ a {
     footer ul a {
       left: 0; right: 0;
       margin: auto;
+    }
+
+    footer p {
+      margin-top: 50;
     }
 
 
