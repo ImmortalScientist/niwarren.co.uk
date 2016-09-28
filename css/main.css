@@ -192,7 +192,6 @@ a {
    .footerbuttons {
      font-weight: bold;
      list-style-type: none;
-     width: 60%;
      min-width: 150px;
      left: 0; right: 0; margin: auto;
      padding-bottom: 10px;
@@ -200,19 +199,6 @@ a {
      margin-bottom: 15px;
    }
 
-   .contactbutton {
-     display: block;
-     padding: 5px 0;
-     margin: 7px;
-     text-align: center;
-     text-decoration: none;
-     color: #ffffff;
-     background-color: #004d99;
-   }
-
-   footer ul a:hover {
-     text-decoration: underline;
-   }
 
  /* ++++++++++++++
      MOBILE: Main
