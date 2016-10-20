@@ -26,35 +26,21 @@
     <div class="header-container">
       <header class="wrapper clearfix">
         <h1 class="title">Nick Warren</h1></a>
-        <ul class="topnav" id="myTopnav">
-          <li class="icon">
-            <a href="javascript:void(0);" onclick="responsiveNav()">&#9776;</a>
-          </li>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="media.html">Media</a></li>
-        </ul>
+        <div class="centerDiv">
+          <nav class="topnav">
+            <li><a href="media.html">Media</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li class="active"><a href="index.html">Home</a></li>
+          </nav>
+        </div>
   		</header>
     </div>
-
-    <script>
-    /* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
-    function responsiveNav() {
-        var x = document.getElementById("myTopnav");
-        if (x.className === "topnav") {
-            x.className += " responsive";
-        } else {
-            x.className = "topnav";
-        }
-    }
-    </script>
 
 
     <div class="main-container Site-content">
       <div class="main wrapper clearfix">
         <article>
           <header>
-            <h2>WARNING - THIS SITE IS STILL UNDER DEVELOPMENT!</h2>
             <h2>Welcome to my site!</h2>
           </header>
           <section>
@@ -69,6 +55,7 @@
           <section>
             <a href="http://octoprint.niwarren.co.uk">Octoprint Server</a>
           </section>
+          <br>
         </article>
       </div>
     </div>
