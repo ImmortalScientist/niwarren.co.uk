@@ -112,7 +112,8 @@ a { color: white; }
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-  min-width: 320px;
+  min-width: 325px;
+  max-width: 1080;
 }
 
 .Site-content { flex: 1; }
@@ -168,6 +169,7 @@ a { color: white; }
      text-decoration: none;
      transition: 0.3s;
      font-size: 1.3em;
+     border: none;
    }
 
    /* Change background color of links on hover & page active */
@@ -215,24 +217,23 @@ a { color: white; }
    Media Queries
    ========================================================================== */
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 599px) {
 
-  /* This should display the header centered above the menu items, which
-  are inline. */
+  /* This should display the header centered above the menu items, which are inline. */
 
   header h1 {
     text-align: center;
-    margin-top: 15px;
+    margin-top: 12px;
     margin-bottom: 0;
   }
 
   div.centerDiv {
       width: 100%;
       text-align: center;
+      padding-bottom: 0;
   }
 
-  ul.topnav {
-      margin: 2px auto;
+  nav.topnav {
       line-height: 1.4;
       padding-left: 0;
   }
@@ -244,6 +245,37 @@ a { color: white; }
 
 }
 
+
+@media only screen and (min-width: 600px) {
+
+  /* This should display the title aligned left, and the navigation aligned to the right of it */
+
+  header h1 {
+      display: inline-block;
+      text-align: left;
+      margin-top: 12px;
+      margin-bottom: 0;
+      width: 35%
+  }
+
+  div.centerDiv {
+      text-align: right;
+      float: right;
+      width: 65%;
+  }
+
+
+}
+
+
+@media only screen and (min-width: 1140px) {
+
+  .wrapper {
+      max-width: 1026px;
+      margin: 0 auto;
+    }
+
+}
 
 
 /* ==========================================================================
