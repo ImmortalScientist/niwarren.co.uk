@@ -141,6 +141,10 @@ a { color: white; }
     background: #0059b3;
 }
 
+.boxwidget {
+  padding-top: 2em;
+  padding-bottom: 2em;
+}
 
 /* ++++++++++++++
     MOBILE: Header
@@ -219,6 +223,7 @@ a { color: white; }
 
 @media only screen and (max-width: 599px) {
 
+  /* ======================== Narrow: Menu =========================*/
   /* This should display the header centered above the menu items, which are inline. */
 
   header h1 {
@@ -248,7 +253,8 @@ a { color: white; }
 
 @media only screen and (min-width: 600px) {
 
-  /* This should display the title aligned left, and the navigation aligned to the right of it */
+  /* ======================== Wide: Menu =========================*/
+  /* display the title aligned left, and the navigation aligned right of it */
 
   header h1 {
       display: inline-block;
@@ -264,9 +270,23 @@ a { color: white; }
       width: 65%;
   }
 
-
 }
 
+@media only screen and (min-width: 850px) {
+
+  /* ======================== Wide: Other =========================*/
+
+  .boxwidget {
+    float: right;
+    width: 35%;
+  }
+
+  article {
+    float:left;
+    width: 60%;
+  }
+  
+}
 
 @media only screen and (min-width: 1140px) {
 
