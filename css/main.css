@@ -215,6 +215,39 @@ a { color: white; }
       text-decoration: underline;
     }
 
+    .imagerow a { text-decoration: none; }
+
+    .imgWrap {
+      padding: 20px;
+      padding-top: 0;
+      position: relative;
+      display: inline-block;
+      height: 200px;
+      width: 200px;
+    }
+
+    .imgrowDescription {
+      position: absolute;
+      display: flex;
+      text-align: center;   /* align horizontal */
+      align-items: center;  /* align vertical */
+      height: 200px;
+      width: 200px;
+      top: 0; bottom: 0; left: 20px; right: 0;
+      margin: 0;
+      background-color: #0066cc;
+      color: white;
+      visibility: none;
+      opacity: 0;
+      transition: visibility 0.3s;
+    }
+
+    .imgWrap:hover .imgrowDescription {
+      visibility: 1;
+      opacity: 0.8;
+    }
+
+
 
 
 /* ==========================================================================
@@ -270,6 +303,9 @@ a { color: white; }
       width: 65%;
   }
 
+  /* ======================== Wide: Other =========================*/
+
+  /*Imagerow - for groups of images, place images
 }
 
 @media only screen and (min-width: 850px) {
@@ -281,11 +317,11 @@ a { color: white; }
     width: 35%;
   }
 
-  article {
+  article.indexpg {
     float:left;
     width: 60%;
   }
-  
+
 }
 
 @media only screen and (min-width: 1140px) {
