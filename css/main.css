@@ -215,6 +215,10 @@ a { color: white; }
       text-decoration: underline;
     }
 
+    article a:hover {
+      text-shadow:0px 0px 1px white;
+    }
+
     .imagerow a { text-decoration: none; }
 
     .imgWrap {
