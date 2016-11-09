@@ -236,7 +236,7 @@ a { color: white; }
       width: 200px;
     }
 
-    .imgrowDescription {
+    .imgWrapDescription {
       position: absolute;
       display: flex;
       text-align: center;   /* align horizontal */
@@ -252,7 +252,7 @@ a { color: white; }
       transition: visibility 0.3s;
     }
 
-    .imgWrap:hover .imgrowDescription {
+    .imgWrap:hover .imgWrapDescription {
       visibility: 1;
       opacity: 0.85;
     }
@@ -313,10 +313,6 @@ a { color: white; }
       width: 65%;
   }
 
-  /* ======================== Wide: Other =========================*/
-
-  /*Imagerow - for groups of images, place images
-}
 
 @media only screen and (min-width: 850px) {
 
@@ -324,12 +320,13 @@ a { color: white; }
 
   .rightaside {
     float: right;
-    width: 35%;
+    width: 40%;
+    padding-top: 25px;
   }
 
-  .leftsection {
+  .leftpage {
     float:left;
-    width: 60%;
+    width: 56%;
   }
 
 }
