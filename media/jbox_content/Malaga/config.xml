@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<juiceboxgallery 
+
+	indexPageName="malaga.html"
+	galleryTitle="Malaga"
+	galleryHeight="60%"
+	backgroundColor="rgba(0,89,179,1)"
+	thumbFrameColor="rgba(77,166,255,1)"
+	useFullscreenExpand="true"
+	showOpenButton="false"
+	showThumbsButton="false"
+
+>
+  <image imageURL="images/DSC_0006_edited.jpg"
+	thumbURL="thumbs/DSC_0006_edited.jpg"
+	linkURL="images/DSC_0006_edited.jpg"
+	linkTarget="_blank"
+	sourcePath="D:\Pictures\Nikon D3200\2016 Malaga\DSC_0006_edited.jpg">
+    <title><![CDATA[Wall]]></title>
+    <caption><![CDATA[]]></caption>
+  </image>
+  <image imageURL="images/DSC_0019.jpg"
+	thumbURL="thumbs/DSC_0019.jpg"
+	linkURL="images/DSC_0019.jpg"
+	linkTarget="_blank"
+	sourcePath="D:\Pictures\Nikon D3200\2016 Malaga\DSC_0019.JPG">
+    <title><![CDATA[Palm Avenue]]></title>
+    <caption><![CDATA[]]></caption>
+  </image>
+  <image imageURL="images/DSC_0032.jpg"
+	thumbURL="thumbs/DSC_0032.jpg"
+	linkURL="images/DSC_0032.jpg"
+	linkTarget="_blank"
+	sourcePath="D:\Pictures\Nikon D3200\2016 Malaga\DSC_0032.JPG">
+    <title><![CDATA[Mural pattern]]></title>
+    <caption><![CDATA[]]></caption>
+  </image>
+  <image imageURL="images/DSC_0055.jpg"
+	thumbURL="thumbs/DSC_0055.jpg"
+	linkURL="images/DSC_0055.jpg"
+	linkTarget="_blank"
+	sourcePath="D:\Pictures\Nikon D3200\2016 Malaga\DSC_0055.JPG">
+    <title><![CDATA[Lonely moon over the Alcazaba]]></title>
+    <caption><![CDATA[]]></caption>
+  </image>
+  <image imageURL="images/DSC_0087_edited.jpg"
+	thumbURL="thumbs/DSC_0087_edited.jpg"
+	linkURL="images/DSC_0087_edited.jpg"
+	linkTarget="_blank"
+	sourcePath="D:\Pictures\Nikon D3200\2016 Malaga\DSC_0087_edited.jpg">
+    <title><![CDATA[Mosque-Cathedral of Cordoba]]></title>
+    <caption><![CDATA[]]></caption>
+  </image>
+  <image imageURL="images/DSC_0249.jpg"
+	thumbURL="thumbs/DSC_0249.jpg"
+	linkURL="images/DSC_0249.jpg"
+	linkTarget="_blank"
+	sourcePath="D:\Pictures\Nikon D3200\2016 Malaga\DSC_0249.JPG">
+    <title><![CDATA[busker]]></title>
+    <caption><![CDATA[]]></caption>
+  </image>
+  <image imageURL="images/DSC_0269.jpg"
+	thumbURL="thumbs/DSC_0269.jpg"
+	linkURL="images/DSC_0269.jpg"
+	linkTarget="_blank"
+	sourcePath="D:\Pictures\Nikon D3200\2016 Malaga\DSC_0269.JPG">
+    <title><![CDATA[Framed Mountains]]></title>
+    <caption><![CDATA[]]></caption>
+  </image>
+  <image imageURL="images/DSC_0331.jpg"
+	thumbURL="thumbs/DSC_0331.jpg"
+	linkURL="images/DSC_0331.jpg"
+	linkTarget="_blank"
+	sourcePath="D:\Pictures\Nikon D3200\2016 Malaga\DSC_0331.JPG">
+    <title><![CDATA[organ]]></title>
+    <caption><![CDATA[]]></caption>
+  </image>
+</juiceboxgallery>
