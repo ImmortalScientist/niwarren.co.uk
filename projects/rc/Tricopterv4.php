@@ -16,6 +16,7 @@
         <link rel="stylesheet" href="../../css/socicon.css">
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
+
     <body class="Site">
         <!--[if lte IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -28,8 +29,8 @@
         <div class="centerDiv">
           <nav class="topnav">
             <li><a href="../../index.php">Home</a></li>
-            <li class="active"><a href="../../projects.html">Projects</a></li>
-            <li><a href="../../media.html">Media</a></li>
+            <li class="active"><a href="../../projects.php">Projects</a></li>
+            <li><a href="../../media.php">Media</a></li>
           </nav>
         </div>
   		</header>
@@ -38,10 +39,32 @@
     <div class="main-container Site-content">
       <div class="main wrapper clearfix">
         <article>
-          <br>Content
+          <header>
+            <h2>RCExplorer Tricopter V4 - August 2016</h2>
+          </header>
+          <section>
+            <span>
+              Thanks to the brilliant design from David Windestål of <a href="http://rcexplorer.se">Rcexplorer.se</a>, I built a folding tricopter based on the custom FCF3 tricopter Flight Controller.
+            </span>
+              <br>
+              <img src="img/folded_v4.jpg" alt="Error: Image Missing - Tricopter V4 landed" width="400" height="300"/>
+              <img src="tricopter_flight.jpg" alt="Error: Image Missing - Tricopter V4 In Flight" width="400" height="300"/>
+              <br>
+            <span>
+              The tricopter consists of three carbon-fibre booms with 2217 size brushless DC motors mounted on each.
+              The rear boom uses David's tail-rotor tilt mechanism to control its thrust direction.
+              The folding booms are held in place by friction between the upper plate (FCF3 PCB) and the lower carbon-fibre plate.
+              This friction is adjustable based on the tightness of four M3 screws.
+              <br><br>
+              Powered from a 4S (14.8V) Li-Polymer Battery, the tricopter theoretically should be able to fly for 10-20 minutes, but I have not flown enough to verify this.
+              On a 4S pack, the model has plenty of power, and manoeuvres quite well.
+              The model also has a custom 3d-printed canopy (printed on my <a href="../3dprinting/prusai3mk2.php">Prusa i3 MK2</a>) to protect the reciever and FCF3 header pins.
+              <br><br>
+            </span>
+          </section>
         </article>
         <footer>
-          <h3 class="returnlink"><a href="../../projects.html">Back to Projects Index</a></h3>
+          <h3 class="returnlink"><a href="../../projects.php">Back to Projects Index</a></h3>
         </footer>
       </div>
     </div>
@@ -55,19 +78,7 @@
               <li><a class="soc-github soc-icon-last" href="https://github.com/ImmortalScientist"></a></li>
           </ul>
         </div>
-        <p>
-          Copyright &copy N.Warren 2016
-          <script language="javascript" type="text/javascript">
-            var today = new Date()
-            var year = today.getFullYear()
-            var footerElement = document.querySelector("#footer");
-            if (year != 2016) {
-              footerElement.style.textIndent="10px";
-              document.write(" - ")
-              document.write(year)
-            }
-          </script>
-        </p>
+        <p>Copyright N.Warren &copy 2016-<?php echo date("Y")?></p>
       </footer>
     </div>
 

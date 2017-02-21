@@ -29,8 +29,8 @@
         <div class="centerDiv">
           <nav class="topnav">
             <li><a href="../../index.php">Home</a></li>
-            <li class="active"><a href="../../projects.html">Projects</a></li>
-            <li><a href="../../media.html">Media</a></li>
+            <li class="active"><a href="../../projects.php">Projects</a></li>
+            <li><a href="../../media.php">Media</a></li>
           </nav>
         </div>
   		</header>
@@ -39,35 +39,10 @@
     <div class="main-container Site-content">
       <div class="main wrapper clearfix">
         <article>
-          <header>
-            <h2>Prusa Research - Prusa i3 MK2 - July 2016</h2>
-          </header>
-          <section>
-            <span>
-              I decided to build a 3D Printer this summer, as I was living in Reading, and wanted to take an additional side-project alongside work.
-              In addition, the ability to fabricate custom parts for RC model aircraft was desired.
-              <br><br>
-              After significant research, I decided to build a Prusa i3 design.
-              Initially I looked at assembling a printer from parts (Ebay, naturally), but after an email conversation with <a href="http://www.prusa3d.com/">Prusa Research</a>, the original designer of the i3, I ordered a kit for their newly released MK2 printer.
-              Assembling the kit was mostly painless, with Prusa's 24/7 live support chat proving very helpful
-            </span>
-              <br><hr>
-              <div class="projectimages">
-                <img src="../../img/y and xz axes.jpg" alt="Missing Image: Josef Prusa i3 MK2 under construction" width="250" height="250" />
-                <img src="../../img/assembled.jpg" alt="Missing Image: Josef Prusa i3 MK2 under construction" width="250" height="250" />
-                <img src="../../img/finished.jpg" alt="Missing Image: Josef Prusa i3 MK2 under construction" width="250" height="250" />
-              </div>
-              <hr>
-              <span>
-                in September, I endeavoured to build an enclosure for the printer. I had found that with PLA, there were no issues with prints warping or with printbed adherance.
-                With ABS prints however, these issues caused three-quarters of prints to fail. #
-                I realised that as the printer was set up on a table by a window, and there was a draft passing across the printer.
-                To remedy this, I planned to build an <a href="mk2enclosure.html">enclosure</a> and accompanying <a href="http://octoprint.niwarren.co.uk">octoprint setup</a> for the printer
-              </span>
-          </section>
+          <br>Content
         </article>
         <footer>
-          <h3 class="returnlink"><a href="../../projects.html">Back to Projects Index</a></h3>
+          <h3 class="returnlink"><a href="../../projects.php">Back to Projects Index</a></h3>
         </footer>
       </div>
     </div>
@@ -81,7 +56,7 @@
               <li><a class="soc-github soc-icon-last" href="https://github.com/ImmortalScientist"></a></li>
           </ul>
         </div>
-        <p>Copyright &copy N.Warren 2016-2017</p>
+        <p>Copyright N.Warren &copy 2016-<?php echo date("Y")?></p>
       </footer>
     </div>
 

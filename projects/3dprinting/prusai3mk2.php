@@ -29,8 +29,8 @@
         <div class="centerDiv">
           <nav class="topnav">
             <li><a href="../../index.php">Home</a></li>
-            <li class="active"><a href="../../projects.html">Projects</a></li>
-            <li><a href="../../media.html">Media</a></li>
+            <li class="active"><a href="../../projects.php">Projects</a></li>
+            <li><a href="../../media.php">Media</a></li>
           </nav>
         </div>
   		</header>
@@ -40,31 +40,34 @@
       <div class="main wrapper clearfix">
         <article>
           <header>
-            <h2>RCExplorer Tricopter V4 - August 2016</h2>
+            <h2>Prusa Research - Prusa i3 MK2 - July 2016</h2>
           </header>
           <section>
             <span>
-              Thanks to the brilliant design from David Windestål of <a href="http://rcexplorer.se">Rcexplorer.se</a>, I built a folding tricopter based on the custom FCF3 tricopter Flight Controller.
-            </span>
-              <br>
-              <img src="img/folded_v4.jpg" alt="Error: Image Missing - Tricopter V4 landed" width="400" height="300"/>
-              <img src="tricopter_flight.jpg" alt="Error: Image Missing - Tricopter V4 In Flight" width="400" height="300"/>
-              <br>
-            <span>
-              The tricopter consists of three carbon-fibre booms with 2217 size brushless DC motors mounted on each.
-              The rear boom uses David's tail-rotor tilt mechanism to control its thrust direction.
-              The folding booms are held in place by friction between the upper plate (FCF3 PCB) and the lower carbon-fibre plate.
-              This friction is adjustable based on the tightness of four M3 screws.
+              I decided to build a 3D Printer this summer, as I was living in Reading, and wanted to take an additional side-project alongside work.
+              In addition, the ability to fabricate custom parts for RC model aircraft was desired.
               <br><br>
-              Powered from a 4S (14.8V) Li-Polymer Battery, the tricopter theoretically should be able to fly for 10-20 minutes, but I have not flown enough to verify this.
-              On a 4S pack, the model has plenty of power, and manoeuvres quite well.
-              The model also has a custom 3d-printed canopy (printed on my <a href="../3dprinting/prusai3mk2.html">Prusa i3 MK2</a>) to protect the reciever and FCF3 header pins.
-              <br><br>
+              After significant research, I decided to build a Prusa i3 design.
+              Initially I looked at assembling a printer from parts (Ebay, naturally), but after an email conversation with <a href="http://www.prusa3d.com/">Prusa Research</a>, the original designer of the i3, I ordered a kit for their newly released MK2 printer.
+              Assembling the kit was mostly painless, with Prusa's 24/7 live support chat proving very helpful
             </span>
+              <br><hr>
+              <div class="projectimages">
+                <img src="../../img/y and xz axes.jpg" alt="Missing Image: Josef Prusa i3 MK2 under construction" width="250" height="250" />
+                <img src="../../img/assembled.jpg" alt="Missing Image: Josef Prusa i3 MK2 under construction" width="250" height="250" />
+                <img src="../../img/finished.jpg" alt="Missing Image: Josef Prusa i3 MK2 under construction" width="250" height="250" />
+              </div>
+              <hr>
+              <span>
+                in September, I endeavoured to build an enclosure for the printer. I had found that with PLA, there were no issues with prints warping or with printbed adherance.
+                With ABS prints however, these issues caused three-quarters of prints to fail. #
+                I realised that as the printer was set up on a table by a window, and there was a draft passing across the printer.
+                To remedy this, I planned to build an <a href="mk2enclosure.php">enclosure</a> and accompanying <a href="http://octoprint.niwarren.co.uk">octoprint setup</a> for the printer
+              </span>
           </section>
         </article>
         <footer>
-          <h3 class="returnlink"><a href="../../projects.html">Back to Projects Index</a></h3>
+          <h3 class="returnlink"><a href="../../projects.php">Back to Projects Index</a></h3>
         </footer>
       </div>
     </div>
@@ -78,7 +81,7 @@
               <li><a class="soc-github soc-icon-last" href="https://github.com/ImmortalScientist"></a></li>
           </ul>
         </div>
-        <p>Copyright &copy N.Warren 2016-2017</p>
+        <p>Copyright N.Warren &copy 2016-<?php echo date("Y")?></p>
       </footer>
     </div>
 

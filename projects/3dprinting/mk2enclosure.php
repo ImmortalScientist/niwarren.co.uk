@@ -29,8 +29,8 @@
         <div class="centerDiv">
           <nav class="topnav">
             <li><a href="../../index.php">Home</a></li>
-            <li class="active"><a href="../../projects.html">Projects</a></li>
-            <li><a href="../../media.html">Media</a></li>
+            <li class="active"><a href="../../projects.php">Projects</a></li>
+            <li><a href="../../media.php">Media</a></li>
           </nav>
         </div>
   		</header>
@@ -58,7 +58,7 @@
             clear of the camera's view.</p>
         </article>
         <footer>
-          <h3 class="returnlink"><a href="../../projects.html">Back to Projects Index</a></h3>
+          <h3 class="returnlink"><a href="../../projects.php">Back to Projects Index</a></h3>
         </footer>
       </div>
     </div>
@@ -72,7 +72,7 @@
               <li><a class="soc-github soc-icon-last" href="https://github.com/ImmortalScientist"></a></li>
           </ul>
         </div>
-        <p>Copyright &copy N.Warren 2016-2017</p>
+        <p>Copyright N.Warren &copy 2016-<?php echo date("Y")?></p>
       </footer>
     </div>
 
