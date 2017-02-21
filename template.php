@@ -29,8 +29,8 @@
             <div class="centerDiv">
               <nav class="topnav">
                 <li><a href="index.php">Home</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="media.html">Media</a></li>
+                <li><a href="projects.php">Projects</a></li>
+                <li><a href="media.php">Media</a></li>
               </nav>
             </div>
       		</header>
@@ -59,19 +59,7 @@
               <li><a class="soc-github soc-icon-last" href="https://github.com/ImmortalScientist"></a></li>
           </ul>
         </div>
-        <p>
-          Copyright &copy N.Warren 2016
-          <script language="javascript" type="text/javascript">
-            var today = new Date()
-            var year = today.getFullYear()
-            var footerElement = document.querySelector("#footer");
-            if (year != 2016) {
-              footerElement.style.textIndent="10px";
-              document.write(" - ")
-              document.write(year)
-            }
-          </script>
-        </p>
+        <p>Copyright N.Warren &copy 2016-<?php echo date("Y")?></p>
       </footer>
     </div>
 

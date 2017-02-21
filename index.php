@@ -29,8 +29,8 @@
         <div class="centerDiv">
           <nav class="topnav">
             <li class="active"><a href="index.php">Home</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="media.html">Media</a></li>
+            <li><a href="projects.php">Projects</a></li>
+            <li><a href="media.php">Media</a></li>
           </nav>
         </div>
   		</header>
@@ -44,7 +44,7 @@
             <h2>Welcome to my site!</h2>
             </header>
             <section>
-                This is my personal website - on it you can find information about projects which I have delved into, and .<br><br>
+                This is my personal website - on it you can find information about projects which I have delved into, and a selection of photographs I have taken in the last few years.<br><br>
                 I am a student at the <a href="http://www.reading.ac.uk/">University of Reading</a> studying Electronic Engineering (BEng).<br>
                 In my spare time, I like tinkering with RC Multirotors, playing the French Horn and I'm also a fairly keen Archer!<br><br>
                 <?php
@@ -85,7 +85,7 @@
               <li><a class="soc-github soc-icon-last" href="https://github.com/ImmortalScientist"></a></li>
           </ul>
         </div>
-        <p>Copyright &copy N.Warren 2016-2017</p>
+        <p>Copyright N.Warren &copy 2016-<?php echo date("Y")?></p>
       </footer>
     </div>
 

@@ -30,8 +30,8 @@
           <div class="centerDiv">
             <nav class="topnav">
               <li><a href="index.php">Home</a></li>
-              <li><a href="projects.html">Projects</a></li>
-              <li class="active"><a href="media.html">Media</a></li>
+              <li class="active"><a href="projects.php">Projects</a></li>
+              <li><a href="media.php">Media</a></li>
             </nav>
           </div>
     		</header>
@@ -41,29 +41,46 @@
 
       <div class="main-container Site-content">
         <div class="main wrapper clearfix">
+
           <header>
-            <h2>Media</h2>
+            <h2>Projects Index</h2>
+            Below are some of the projects which I have worked on since starting Uni in 2014.
           </header>
 
           <article>
             <div class="imagerow">
-              <h3><a href="media/galleries.html">Photo Galleries</a></h3>
+              <h3>Multirotors</h3>
               <div class="imgWrap">
-                <a href="./media/jbox_content/Malaga/malaga.html" target="_blank">
-                  <img src="img/mediathumbs/malaga_thumb.jpg" alt="Malaga" height="200px" width="200px" />
-                  <h2 class="imgWrapDescription">Malaga - Shots from Summer 2016</h2>
+                <a href="./projects/rc/quad180.html">
+                  <img src="img/quad_180_thumb.jpg" alt="180mm Micro Quadcopter" height="200px" width="200px"/>
+                  <h2 class="imgWrapDescription">180mm Micro Quadcopter</h2>
                 </a>
               </div>
               <div class="imgWrap">
-                <a href="./media/jbox_content/arty/arty.html" target="_blank">
-                  <img src="img/mediathumbs/arty_thumb.jpg" alt="arty" height="200px" width="200px" />
-                  <h2 class="imgWrapDescription">arty - A collection of misfits</h2>
+                <a href="./projects/rc/quad280.html">
+                  <img src="img/quad_280_thumb.jpg" alt="280mm Mini Quadcopter "Betty"" height="200px" width="200px"/>
+                  <h2 class="imgWrapDescription">280mm Mini Quadcopter</h2>
+                </a>
+              </div>
+              <div class="imgWrap">
+                <a href="./projects/rc/Tricopterv4.html">
+                  <img src="img/tricopter_v4_thumb.jpg" alt="RCExplorer Tricopter v4" height="200px" width="200px"/>
+                  <h2 class="imgWrapDescription">RCExplorer Tricopter v4</h2>
                 </a>
               </div>
             </div>
-            <hr>
-          </article>
 
+            <div class="imagerow">
+              <h3>3D Printing</h3>
+
+              <div class="imgWrap">
+                <a href="./projects/3dprinting/prusai3mk2.html">
+                  <img src="img/MK2_thumb.png" alt="Original Prusa i3 MK2" height="200px" width="200px"/>
+                  <h2 class="imgWrapDescription">Original Prusa i3 MK2</h2>
+                </a>
+              </div>
+            </div>
+          </article>
         </div>
       </div>
 
@@ -73,14 +90,17 @@
         <footer class="wrapper">
           <div class="footerbuttons">
             <ul class="soc">
+                <li><a class="soc-mail" href="mailto:placeholder@thisisnotanemail.com"></a></li>
                 <li><a class="soc-facebook" href="https://www.facebook.com/immortalscientist"></a></li>
                 <li><a class="soc-linkedin" href="https://uk.linkedin.com/in/nicholas-warren-358244a7"></a></li>
                 <li><a class="soc-github soc-icon-last" href="https://github.com/ImmortalScientist"></a></li>
             </ul>
           </div>
-            <p>Copyright &copy N.Warren 2017</p>
+        <p>Copyright N.Warren &copy 2016-<?php echo date("Y")?></p>
         </footer>
       </div>
+
+<!--=========================================================================-->
 
         <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
