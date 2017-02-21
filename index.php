@@ -76,16 +76,19 @@
               <li><a class="soc-github soc-icon-last" href="https://github.com/ImmortalScientist"></a></li>
           </ul>
         </div>
-        <?php
-          $str   = @file_get_contents('/proc/uptime');
-          $num   = floatval($str);
-          $secs  = fmod($num, 60); $num = (int)($num / 60);
-          $mins  = $num % 60;      $num = (int)($num / 60);
-          $hours = $num % 24;      $num = (int)($num / 24);
-          $days  = $num;
-          echo "This server has been up for " . $days . " days, " . $hours . " hours, and " . $mins . " minutes.";// echo the results
-        ?>
-        <p>Copyright &copy N.Warren 2016-2017</p>
+        <p>
+          <?php
+            $str   = @file_get_contents('/proc/uptime');
+            $num   = floatval($str);
+            $secs  = fmod($num, 60); $num = (int)($num / 60);
+            $mins  = $num % 60;      $num = (int)($num / 60);
+            $hours = $num % 24;      $num = (int)($num / 24);
+            $days  = $num;
+            echo "This server has been up for " . $days . " days, " . $hours . " hours, and " . $mins . " minutes.";// echo the results
+          ?>
+          <br>
+          Copyright &copy N.Warren 2016-2017
+        </p>
       </footer>
     </div>
 
