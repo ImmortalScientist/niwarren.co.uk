@@ -47,6 +47,15 @@
                 This is my personal website - on it you can find information about projects which I have delved into, and .<br><br>
                 I am a student at the <a href="http://www.reading.ac.uk/">University of Reading</a> studying Electronic Engineering (BEng).<br>
                 In my spare time, I like tinkering with RC Multirotors, playing the French Horn and I'm also a fairly keen Archer!<br><br>
+                <?php
+                  $str   = @file_get_contents('/proc/uptime');
+                  $num   = floatval($str);
+                  $secs  = fmod($num, 60); $num = (int)($num / 60);
+                  $mins  = $num % 60;      $num = (int)($num / 60);
+                  $hours = $num % 24;      $num = (int)($num / 24);
+                  $days  = $num;
+                  echo "This server has been up for " . $days . " days, " . $hours . " hours, and " . $mins . " minutes.";// echo the results
+                ?>
                 <br>
             </section>
 
@@ -76,19 +85,7 @@
               <li><a class="soc-github soc-icon-last" href="https://github.com/ImmortalScientist"></a></li>
           </ul>
         </div>
-        <p>
-          <?php
-            $str   = @file_get_contents('/proc/uptime');
-            $num   = floatval($str);
-            $secs  = fmod($num, 60); $num = (int)($num / 60);
-            $mins  = $num % 60;      $num = (int)($num / 60);
-            $hours = $num % 24;      $num = (int)($num / 24);
-            $days  = $num;
-            echo "This server has been up for " . $days . " days, " . $hours . " hours, and " . $mins . " minutes.";// echo the results
-          ?>
-          <br>
-          Copyright &copy N.Warren 2016-2017
-        </p>
+        <p>Copyright &copy N.Warren 2016-2017</p>
       </footer>
     </div>
 
