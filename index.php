@@ -54,7 +54,7 @@
                   $mins  = $num % 60;      $num = (int)($num / 60);
                   $hours = $num % 24;      $num = (int)($num / 24);
                   $days  = $num;
-                  echo "This server has been up for " . $days . " days, " . $hours . " hours, and " . $mins . " minutes.";// echo the results
+                  echo "This server has been up for " . $days . "d, " . $hours . "h, and " . $mins . "m.";// echo the results
                 ?>
                 <br>
             </section>
