@@ -63,7 +63,7 @@
               <h3>Links</h3>
             </header>
             <div class="imgWrap">
-              <a href="http://octoprint.niwarren.co.uk">
+              <a href="http://home.niwarren.co.uk">
                 <img src="img/octoprint_thumb.png" alt="Octoprint Server"/>
                 <h2 class="imgWrapDescription">Octoprint Server</h2>
               </a>

@@ -47,7 +47,7 @@
 
           <article>
             <div class="imagerow">
-              <h3><a href="media/galleries.html">Photo Galleries</a></h3>
+              <h3>Photo Galleries</h3>
               <div class="imgWrap">
                 <a href="./media/jbox_content/Malaga/malaga.html" target="_blank">
                   <img src="img/mediathumbs/malaga_thumb.jpg" alt="Malaga" height="200px" width="200px" />
