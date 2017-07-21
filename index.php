@@ -45,7 +45,7 @@
             </header>
             <section>
                 This is my personal website - on it you can find information about projects which I have delved into, and a selection of photographs I have taken in the last few years.<br><br>
-                I am a student at the <a href="http://www.reading.ac.uk/">University of Reading</a> studying Electronic Engineering (BEng).<br>
+                I am a graduate of at the <a href="http://www.reading.ac.uk/">University of Reading</a> in Electronic Engineering (BEng). I currently work as a KTP Associate for PB Design and Developments Ltd. in Somerset.<br>
                 In my spare time, I like tinkering with RC Multirotors, playing the French Horn and I'm also a fairly keen Archer!<br><br>
                 <?php
                   $str   = @file_get_contents('/proc/uptime');
