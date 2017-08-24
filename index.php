@@ -57,6 +57,8 @@
                   echo "This server has been up for " . $days . "d, " . $hours . "h, " . $mins . "m.";// echo the results
                 ?>
                 <br>
+                <a href="serverinfo.niwarren.co.uk">More system information about this server</a>
+                <br>
             </section>
 
             <header>
