@@ -67,6 +67,8 @@
                 <img src="img/octoprint_thumb.png" alt="Octoprint Server"/>
                 <h2 class="imgWrapDescription">Octoprint Server</h2>
               </a>
+            </div>
+            <div class="imgWrap">
               <a href="http://serverinfo.niwarren.co.uk">
                 <img src="img/serverinfo.png" alt="PHP Server Info"/>
                 <h2 class="imgWrapDescription">Server System Information</h2>
