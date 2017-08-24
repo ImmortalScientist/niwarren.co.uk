@@ -57,17 +57,19 @@
                   echo "This server has been up for " . $days . "d, " . $hours . "h, " . $mins . "m.";// echo the results
                 ?>
                 <br>
-                <a href="serverinfo.niwarren.co.uk">More system information about this server</a>
-                <br>
             </section>
 
             <header>
               <h3>Links</h3>
             </header>
             <div class="imgWrap">
-              <a href="http://home.niwarren.co.uk">
+              <a href="http://niwarren.co.uk/404.php">
                 <img src="img/octoprint_thumb.png" alt="Octoprint Server"/>
                 <h2 class="imgWrapDescription">Octoprint Server</h2>
+              </a>
+              <a href="http://serverinfo.niwarren.co.uk">
+                <img src="img/serverinfo.png" alt="PHP Server Info"/>
+                <h2 class="imgWrapDescription">Server System Information</h2>
               </a>
             </div>
           </article>
