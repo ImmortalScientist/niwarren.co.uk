@@ -56,7 +56,7 @@
                   $days  = $num;
                   echo "This server has been up for " . $days . "d, " . $hours . "h, " . $mins . "m. ";// echo the results
                 ?>
-                <a href="phpsysinfo/index.php">Server Info.</a>
+                <a href="./phpsysinfo/index.php">Server Info.</a>
                 <br>
             </section>
           </article>
