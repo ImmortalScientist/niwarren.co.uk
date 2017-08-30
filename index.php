@@ -54,26 +54,11 @@
                   $mins  = $num % 60;      $num = (int)($num / 60);
                   $hours = $num % 24;      $num = (int)($num / 24);
                   $days  = $num;
-                  echo "This server has been up for " . $days . "d, " . $hours . "h, " . $mins . "m.";// echo the results
+                  echo "This server has been up for " . $days . "d, " . $hours . "h, " . $mins . "m. ";// echo the results
                 ?>
+                <a href="phpsysinfo/index.php">Server Info.</a>
                 <br>
             </section>
-
-            <header>
-              <h3>Links</h3>
-            </header>
-            <div class="imgWrap">
-              <a href="http://niwarren.co.uk/octoprint">
-                <img src="img/octoprint_thumb.png" alt="Octoprint Server"/>
-                <h2 class="imgWrapDescription">Octoprint Server</h2>
-              </a>
-            </div>
-            <div class="imgWrap">
-              <a href="http://serverinfo.niwarren.co.uk">
-                <img src="img/serverinfo.png" alt="PHP Server Info"/>
-                <h2 class="imgWrapDescription">Server System Information</h2>
-              </a>
-            </div>
           </article>
         <aside class="rightaside">
           <script src="https://www.reddit.com/hot/.embed?limit=5&t=all=true" type="text/javascript"></script>
