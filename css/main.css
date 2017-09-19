@@ -295,6 +295,7 @@ a { color: white; }
   nav.topnav {
       line-height: 1.4;
       padding-left: 0;
+      width: 40%;
   }
 
   .topnav li {
