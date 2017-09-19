@@ -282,7 +282,7 @@ a { color: white; }
 
   header img {
     width: 100%;
-    text-align: center;
+    margin: auto;
     margin-top: 12px;
     margin-bottom: 0;
   }
@@ -315,7 +315,7 @@ a { color: white; }
   header h1 {
       display: inline-block;
       text-align: left;
-      margin-top: 12px;
+      margin-top: 6px;
       margin-bottom: 0;
       width: 55%
   }
@@ -323,7 +323,7 @@ a { color: white; }
   header img {
       display: inline-block;
       text-align: left;
-      margin-top: 12px;
+      margin-top: 6px;
       margin-bottom: 0;
       width: 55%
   }
