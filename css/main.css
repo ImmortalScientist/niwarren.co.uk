@@ -280,6 +280,12 @@ a { color: white; }
     margin-bottom: 0;
   }
 
+  header img {
+    text-align: center;
+    margin-top: 12px;
+    margin-bottom: 0;
+  }
+
   div.centerDiv {
       width: 100%;
       text-align: center;
@@ -309,13 +315,21 @@ a { color: white; }
       text-align: left;
       margin-top: 12px;
       margin-bottom: 0;
-      width: 35%
+      width: 50%
+  }
+
+  header img {
+      display: inline-block;
+      text-align: left;
+      margin-top: 12px;
+      margin-bottom: 0;
+      width: 50%
   }
 
   div.centerDiv {
       text-align: right;
       float: right;
-      width: 65%;
+      width: 50%;
   }
 
 
