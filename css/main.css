@@ -296,7 +296,7 @@ a { color: white; }
   nav.topnav {
       line-height: 1.4;
       padding-left: 0;
-      width: 40%;
+      min-width: 325px;
   }
 
   .topnav li {
