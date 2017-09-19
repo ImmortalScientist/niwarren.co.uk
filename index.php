@@ -13,8 +13,7 @@
         <link rel="manifest" href="/manifest.json?v=1.0">
         <link rel="mask-icon" href="/safari-pinned-tab.svg?v=1.0" color="#5bbad5">
         <link rel="shortcut icon" href="/favicon.ico?v=1.0">
-        <meta name="theme-color" content="#ff0000">
-        
+      
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/socicon.css">
