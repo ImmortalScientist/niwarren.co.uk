@@ -269,7 +269,7 @@ a { color: white; }
    Media Queries
    ========================================================================== */
 
-@media only screen and (max-width: 599px) {
+@media only screen and (max-width: 699px) {
 
   /* ======================== Narrow: Menu =========================*/
   /* This should display the header centered above the menu items, which are inline. */
@@ -281,6 +281,7 @@ a { color: white; }
   }
 
   header img {
+    width: 100%;
     text-align: center;
     margin-top: 12px;
     margin-bottom: 0;
@@ -306,7 +307,7 @@ a { color: white; }
 }
 
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 700px) {
 
   /* ======================== Wide: Menu =========================*/
   /* display the title aligned left, and the navigation aligned right of it */
@@ -316,7 +317,7 @@ a { color: white; }
       text-align: left;
       margin-top: 12px;
       margin-bottom: 0;
-      width: 50%
+      width: 55%
   }
 
   header img {
@@ -324,13 +325,13 @@ a { color: white; }
       text-align: left;
       margin-top: 12px;
       margin-bottom: 0;
-      width: 50%
+      width: 55%
   }
 
   div.centerDiv {
       text-align: right;
       float: right;
-      width: 50%;
+      width: 45%;
   }
 
 
