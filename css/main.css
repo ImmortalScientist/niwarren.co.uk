@@ -320,8 +320,6 @@ a { color: white; }
   }
 
   header img {
-      display: inline-block;
-      text-align: left;
       border-bottom: 4px; border-top: 4px;
       width: 55%
   }
