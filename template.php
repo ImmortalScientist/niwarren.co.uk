@@ -29,7 +29,7 @@
         <!-- Add your site or application content here -->
         <div class="header-container">
           <header class="wrapper clearfix">
-            <h1 class="title">Nick Warren</h1></a>
+            <img class="titleimg" src="/img/full_logo2_white.svg" alt="Nick Warren" width="325" height="45">
             <div class="centerDiv">
               <nav class="topnav">
                 <li><a href="index.php">Home</a></li>

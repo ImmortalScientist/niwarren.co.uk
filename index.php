@@ -13,7 +13,7 @@
         <link rel="manifest" href="/manifest.json?v=1.0">
         <link rel="mask-icon" href="/safari-pinned-tab.svg?v=1.0" color="#5bbad5">
         <link rel="shortcut icon" href="/favicon.ico?v=1.0">
-      
+
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/socicon.css">
@@ -28,7 +28,7 @@
         <!-- Add your site or application content here -->
     <div class="header-container">
       <header class="wrapper clearfix">
-        <h1 class="title">Nick Warren</h1></a>
+        <img class="titleimg" src="/img/full_logo2_white.svg" alt="Nick Warren" width="325" height="45">
         <div class="centerDiv">
           <nav class="topnav">
             <li class="active"><a href="index.php">Home</a></li>
