@@ -203,10 +203,6 @@ a { color: white; }
    }
 
 
-   .projectimages {
-     width: 100%;
-   }
-
 
  /* ++++++++++++++
      MOBILE: Main
@@ -232,7 +228,11 @@ a { color: white; }
       padding: none;
     }
 
-    .imagerow a { text-decoration: none; }
+    .imgWrap-container{
+      display: flex;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+    }
 
     .imgWrap {
       padding: 20px;
@@ -254,7 +254,7 @@ a { color: white; }
       margin: 0;
       background-color: #0066cc;
       color: white;
-      visibility: none;
+      visibility: 0;
       opacity: 0;
       transition: visibility 0.3s;
     }

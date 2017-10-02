@@ -52,8 +52,8 @@
           </header>
 
           <article>
-            <div class="imagerow">
-              <h3>Multirotors</h3>
+            <h3>Multirotors</h3>
+            <div class="imgWrap-container">
               <div class="imgWrap">
                 <a href="./projects/rc/quad180.php">
                   <img src="img/quad_180_thumb.jpg" alt="180mm Micro Quadcopter" height="200px" width="200px"/>
@@ -74,9 +74,8 @@
               </div>
             </div>
 
-            <div class="imagerow">
-              <h3>3D Printing</h3>
-
+            <h3>Multirotors</h3>
+            <div class="imgWrap-container">
               <div class="imgWrap">
                 <a href="./projects/3dprinting/prusai3mk2.php">
                   <img src="img/MK2_thumb.png" alt="Original Prusa i3 MK2" height="200px" width="200px"/>
