@@ -56,7 +56,7 @@
               Assembling the kit was mostly painless, with Prusa's 24/7 live support chat proving very helpful
             </span>
               <br><hr>
-              <div class="projectimages">
+              <div>
                 <img src="../../img/y and xz axes.jpg" alt="Missing Image: Josef Prusa i3 MK2 under construction" width="250" height="250" />
                 <img src="../../img/assembled.jpg" alt="Missing Image: Josef Prusa i3 MK2 under construction" width="250" height="250" />
                 <img src="../../img/finished.jpg" alt="Missing Image: Josef Prusa i3 MK2 under construction" width="250" height="250" />
