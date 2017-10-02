@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<juiceboxgallery 
+
+	indexPageName="arty.html"
+	galleryTitle="arty"
+	galleryWidth="100%"
+	galleryHeight="60%"
+	backgroundColor="rgba(0,89,179,1)"
+	thumbFrameColor="rgba(77,166,255,1)"
+	showExpandButton="true"
+	useFullscreenExpand="true"
+	useThumbDots="false"
+	showOpenButton="false"
+	cropToFit="false"
+	showThumbsButton="false"
+
+>
+  <image imageURL="images/DSC_0105.jpg"
+	thumbURL="thumbs/DSC_0105.jpg"
+	linkURL="images/DSC_0105.jpg"
+	linkTarget="_blank"
+	sourcePath="D:\Pictures\Nikon D3200\20150509 - Walk around the Lake\DSC_0105.JPG">
+    <title><![CDATA[Whiteknights before Sunset]]></title>
+    <caption><![CDATA[]]></caption>
+  </image>
+  <image imageURL="images/barky.jpg"
+	thumbURL="thumbs/barky.jpg"
+	linkURL="images/barky.jpg"
+	linkTarget="_blank"
+	sourcePath="D:\Pictures\Nikon D3200\20150509 - Walk around the Lake\barky.JPG">
+    <title><![CDATA[barky]]></title>
+    <caption><![CDATA[]]></caption>
+  </image>
+  <image imageURL="images/DSC_0174.jpg"
+	thumbURL="thumbs/DSC_0174.jpg"
+	linkURL="images/DSC_0174.jpg"
+	linkTarget="_blank"
+	sourcePath="D:\Pictures\Nikon D3200\20150330 - Jacqueline's 21st\DSC_0174.JPG">
+    <title><![CDATA[OXO]]></title>
+    <caption><![CDATA[]]></caption>
+  </image>
+  <image imageURL="images/DSC_0065.jpg"
+	thumbURL="thumbs/DSC_0065.jpg"
+	linkURL="images/DSC_0065.jpg"
+	linkTarget="_blank"
+	sourcePath="D:\Pictures\Nikon D3200\20160413 J's Freedom\DSC_0065.JPG">
+    <title><![CDATA[Royal Exchange, London]]></title>
+    <caption><![CDATA[]]></caption>
+  </image>
+  <image imageURL="images/DSC_0013.jpg"
+	thumbURL="thumbs/DSC_0013.jpg"
+	linkURL="images/DSC_0013.jpg"
+	linkTarget="_blank"
+	sourcePath="D:\Pictures\Nikon D3200\20150407 - Reading Campus\DSC_0013.JPG">
+    <title><![CDATA[Autumn fungi]]></title>
+    <caption><![CDATA[]]></caption>
+  </image>
+  <image imageURL="images/DSC_0110.jpg"
+	thumbURL="thumbs/DSC_0110.jpg"
+	linkURL="images/DSC_0110.jpg"
+	linkTarget="_blank"
+	sourcePath="D:\Pictures\Nikon D3200\201506 - Jacqueline's Graduation\DSC_0110.JPG">
+    <title><![CDATA[Fellow's Garden, Clare College Cambridge]]></title>
+    <caption><![CDATA[]]></caption>
+  </image>
+</juiceboxgallery>
