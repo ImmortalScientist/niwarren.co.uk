@@ -202,9 +202,7 @@ a { color: white; }
      margin-bottom: 15px;
    }
 
-   .projectimages {
-     width: 100%;
-   }
+
 
  /* ++++++++++++++
      MOBILE: Main
@@ -230,13 +228,20 @@ a { color: white; }
       padding: none;
     }
 
-    .imagerow a { text-decoration: none; }
+    article h3{
+      text-align: center;
+    }
+
+    .imgWrap-container{
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
 
     .imgWrap {
       padding: 20px;
       padding-top: 0;
       position: relative;
-      display: inline-block;
       height: 200px;
       width: 200px;
     }
@@ -252,7 +257,7 @@ a { color: white; }
       margin: 0;
       background-color: #0066cc;
       color: white;
-      visibility: none;
+      visibility: 0;
       opacity: 0;
       transition: visibility 0.3s;
     }
@@ -273,12 +278,6 @@ a { color: white; }
 
   /* ======================== Narrow: Menu =========================*/
   /* This should display the header centered above the menu items, which are inline. */
-
-  header h1 {
-    text-align: center;
-    margin-top: 6px;
-    margin-bottom: 0;
-  }
 
   header img {
     width: 100%;
@@ -310,13 +309,6 @@ a { color: white; }
 
   /* ======================== Wide: Menu =========================*/
   /* display the title aligned left, and the navigation aligned right of it */
-
-  header h1 {
-      display: inline-block;
-      text-align: left;
-      margin-top: 6px; margin-bottom: 6px;
-      width: 55%
-  }
 
   header img {
       display: inline-block;
@@ -359,6 +351,9 @@ a { color: white; }
     }
 
 }
+
+
+
 
 
 /* ==========================================================================

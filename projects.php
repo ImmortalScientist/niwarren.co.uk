@@ -30,7 +30,7 @@
 
       <div class="header-container">
         <header class="wrapper clearfix">
-          <img class="titleimg" src="/img/full_logo2_white.svg" alt="Nick Warren" width="325" height="45">
+          <img class="titleimg" src="img/full_logo2_white.svg" alt="Nick Warren" width="325" height="45">
           <div class="centerDiv">
             <nav class="topnav">
               <li><a href="index.php">Home</a></li>
@@ -52,31 +52,30 @@
           </header>
 
           <article>
-            <div class="imagerow">
-              <h3>Multirotors</h3>
+            <h3>Multirotors</h3>
+            <div class="imgWrap-container">
               <div class="imgWrap">
-                <a href="./projects/rc/quad180.php">
-                  <img src="img/quad_180_thumb.jpg" alt="180mm Micro Quadcopter" height="200px" width="200px"/>
-                  <h2 class="imgWrapDescription">180mm Micro Quadcopter</h2>
+                <a href="./projects/rc/Tricopterv4.php">
+                  <img src="img/tricopter_v4_thumb.jpg" alt="RCExplorer Tricopter v4">
+                  <h2 class="imgWrapDescription">RCExplorer Tricopter v4</h2>
                 </a>
               </div>
               <div class="imgWrap">
                 <a href="./projects/rc/quad280.php">
-                  <img src="img/quad_280_thumb.jpg" alt="280mm Mini Quadcopter "Betty"" height="200px" width="200px"/>
+                  <img src="img/quad_280_thumb.jpg" alt="280mm Mini Quadcopter"/>
                   <h2 class="imgWrapDescription">280mm Mini Quadcopter</h2>
                 </a>
               </div>
               <div class="imgWrap">
-                <a href="./projects/rc/Tricopterv4.php">
-                  <img src="img/tricopter_v4_thumb.jpg" alt="RCExplorer Tricopter v4" height="200px" width="200px"/>
-                  <h2 class="imgWrapDescription">RCExplorer Tricopter v4</h2>
+                <a href="./projects/rc/quad180.php">
+                  <img src="img/quad_180_thumb.jpg" alt="180mm Micro Quadcopter"/>
+                  <h2 class="imgWrapDescription">180mm Micro Quadcopter</h2>
                 </a>
               </div>
             </div>
 
-            <div class="imagerow">
-              <h3>3D Printing</h3>
-
+            <h3>3D Printing</h3>
+            <div class="imgWrap-container">
               <div class="imgWrap">
                 <a href="./projects/3dprinting/prusai3mk2.php">
                   <img src="img/MK2_thumb.png" alt="Original Prusa i3 MK2" height="200px" width="200px"/>
