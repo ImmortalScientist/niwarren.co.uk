@@ -54,13 +54,13 @@
             <div class="imgWrap-container">
               <div class="imgWrap">
                 <a href="./media/jbox_content/Malaga/malaga.html" target="_blank">
-                  <img src="img/mediathumbs/malaga_thumb.jpg" alt="Malaga" height="200px" width="200px" />
+                  <img src="img/mediathumbs/malaga_thumb.jpg" alt="Malaga"/>
                   <h2 class="imgWrapDescription">Malaga - Shots from Summer 2016</h2>
                 </a>
               </div>
               <div class="imgWrap">
                 <a href="./media/jbox_content/arty/arty.html" target="_blank">
-                  <img src="img/mediathumbs/arty_thumb.jpg" alt="arty" height="200px" width="200px" />
+                  <img src="img/mediathumbs/arty_thumb.jpg" alt="arty"/>
                   <h2 class="imgWrapDescription">arty - A collection of misfits</h2>
                 </a>
               </div>
