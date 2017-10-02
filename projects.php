@@ -74,7 +74,7 @@
               </div>
             </div>
 
-            <h3>Multirotors</h3>
+            <h3>3D Printing</h3>
             <div class="imgWrap-container">
               <div class="imgWrap">
                 <a href="./projects/3dprinting/prusai3mk2.php">
