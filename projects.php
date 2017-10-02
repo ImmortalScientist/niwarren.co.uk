@@ -55,9 +55,9 @@
             <h3>Multirotors</h3>
             <div class="imgWrap-container">
               <div class="imgWrap">
-                <a href="./projects/rc/quad180.php">
-                  <img src="img/quad_180_thumb.jpg" alt="180mm Micro Quadcopter" height="200px" width="200px"/>
-                  <h2 class="imgWrapDescription">180mm Micro Quadcopter</h2>
+                <a href="./projects/rc/Tricopterv4.php">
+                  <img src="img/tricopter_v4_thumb.jpg" alt="RCExplorer Tricopter v4" height="200px" width="200px"/>
+                  <h2 class="imgWrapDescription">RCExplorer Tricopter v4</h2>
                 </a>
               </div>
               <div class="imgWrap">
@@ -67,9 +67,9 @@
                 </a>
               </div>
               <div class="imgWrap">
-                <a href="./projects/rc/Tricopterv4.php">
-                  <img src="img/tricopter_v4_thumb.jpg" alt="RCExplorer Tricopter v4" height="200px" width="200px"/>
-                  <h2 class="imgWrapDescription">RCExplorer Tricopter v4</h2>
+                <a href="./projects/rc/quad180.php">
+                  <img src="img/quad_180_thumb.jpg" alt="180mm Micro Quadcopter" height="200px" width="200px"/>
+                  <h2 class="imgWrapDescription">180mm Micro Quadcopter</h2>
                 </a>
               </div>
             </div>

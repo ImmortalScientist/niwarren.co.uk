@@ -228,9 +228,13 @@ a { color: white; }
       padding: none;
     }
 
+    article h3{
+      text-align: center;
+    }
+
     .imgWrap-container{
       display: flex;
-      justify-content: flex-start;
+      justify-content: center;
       flex-wrap: wrap;
     }
 
