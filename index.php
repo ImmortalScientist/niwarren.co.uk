@@ -28,7 +28,7 @@
         <!-- Add your site or application content here -->
     <div class="header-container">
       <header class="wrapper clearfix">
-        <img class="titleimg" src="img/full_logo2_white.svg" alt="Nick Warren" width="325" height="45">
+        <img src="img/full_logo2_white.svg" alt="Nick Warren" width="325" height="45">
         <div class="centerDiv">
           <nav class="topnav">
             <li class="active"><a href="index.php">Home</a></li>
@@ -48,8 +48,8 @@
             </header>
             <section>
                 This is my personal website - on it you can find information about projects which I have delved into, and a selection of photographs I have taken in the last few years.<br><br>
-                I am a graduate of the <a href="http://www.reading.ac.uk/">University of Reading</a> in Electronic Engineering (BEng). I currently work as a KTP Associate for PB Design and Developments Ltd. in Somerset.<br>
-                In my spare time, I like playing the French Horn, tinkering with RC Multirotors and I'm also a fairly keen Archer!<br><br>
+                I am a graduate of the <a href="http://www.reading.ac.uk/">University of Reading</a> in Electronic Engineering (BEng). I currently work as a KTP Associate Control Engineer for PB Design and Developments Ltd. in Somerset.<br>
+                In my spare time, I like playing the French Horn, tinkering with all sorts of tech and I'm also a fairly keen Archer!<br><br>
                 <?php
                   $str   = @file_get_contents('/proc/uptime');
                   $num   = floatval($str);

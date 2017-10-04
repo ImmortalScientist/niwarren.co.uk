@@ -30,7 +30,7 @@
 
       <div class="header-container">
         <header class="wrapper clearfix">
-          <img class="titleimg" src="/img/full_logo2_white.svg" alt="Nick Warren" width="325" height="45">
+          <img src="/img/full_logo2_white.svg" alt="Nick Warren" width="325" height="45">
             <nav class="topnav">
               <li><a href="../index.php">Home</a></li>
               <li><a href="../projects.php">Projects</a></li>
