@@ -45,10 +45,6 @@
 
       <div class="main-container Site-content">
         <div class="main wrapper clearfix">
-          <header>
-            <h2>Media</h2>
-          </header>
-
           <article>
             <h3>Photo Galleries</h3>
             <div class="imgWrap-container">

@@ -47,7 +47,6 @@
         <div class="main wrapper clearfix">
 
           <header>
-            <h2>Projects Index</h2>
             Below are some of the projects which I have worked on since starting Uni in 2014.
           </header>
 
