@@ -46,12 +46,8 @@
       <div class="main-container Site-content">
         <div class="main wrapper clearfix">
 
-          <header>
-            Below are some of the projects which I have worked on since starting Uni in 2014.
-          </header>
-
           <article>
-            <h3>Multirotors</h3>
+            <h3>Projects Index</h3>
             <div class="imgWrap-container">
               <div class="imgWrap">
                 <a href="./projects/rc/Tricopterv4.php">
@@ -59,22 +55,6 @@
                   <h2 class="imgWrapDescription">RCExplorer Tricopter v4</h2>
                 </a>
               </div>
-              <div class="imgWrap">
-                <a href="./projects/rc/quad280.php">
-                  <img src="img/quad_280_thumb.jpg" alt="280mm Mini Quadcopter"/>
-                  <h2 class="imgWrapDescription">280mm Mini Quadcopter</h2>
-                </a>
-              </div>
-              <div class="imgWrap">
-                <a href="./projects/rc/quad180.php">
-                  <img src="img/quad_180_thumb.jpg" alt="180mm Micro Quadcopter"/>
-                  <h2 class="imgWrapDescription">180mm Micro Quadcopter</h2>
-                </a>
-              </div>
-            </div>
-
-            <h3>3D Printing</h3>
-            <div class="imgWrap-container">
               <div class="imgWrap">
                 <a href="./projects/3dprinting/prusai3mk2.php">
                   <img src="img/MK2_thumb.png" alt="Original Prusa i3 MK2" height="200px" width="200px"/>
