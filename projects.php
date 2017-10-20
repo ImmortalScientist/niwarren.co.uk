@@ -49,11 +49,13 @@
           <article>
             <h3>Projects Index</h3>
             <div class="imgWrap-container">
+
               <div class="imgWrap">
                 <a href="./projects/rc/Tricopterv4.php">
                   <img src="img/tricopter_v4_thumb.jpg" alt="RCExplorer Tricopter v4">
                   <h2 class="imgWrapDescription">RCExplorer Tricopter v4</h2>
                 </a>
+
               </div>
               <div class="imgWrap">
                 <a href="./projects/3dprinting/prusai3mk2.php">
@@ -61,6 +63,14 @@
                   <h2 class="imgWrapDescription">Original Prusa i3 MK2</h2>
                 </a>
               </div>
+
+              <div class="imgWrap">
+                <a href="./projects/3dprinting/tinytesla.php">
+                  <img src="img/underconstruction.png" alt="OneTesla TinyTesla" height="200px" width="200px"/>
+                  <h2 class="imgWrapDescription">OneTesla TinyTesla</h2>
+                </a>
+              </div>
+
             </div>
           </article>
         </div>

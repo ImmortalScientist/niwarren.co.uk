@@ -39,6 +39,7 @@
   		</header>
     </div>
 
+<!--=========================================================================-->
 
     <div class="main-container Site-content">
       <div class="main wrapper clearfix">
@@ -69,6 +70,8 @@
         <br>
       </div>
     </div>
+
+<!--=========================================================================-->
 
     <div class="footer-container">
       <footer class="wrapper">
