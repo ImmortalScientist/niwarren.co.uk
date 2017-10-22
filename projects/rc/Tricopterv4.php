@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Nick Warren</title>
+        <title>Nick Warren | Projects | Tricopter v4</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -14,9 +14,10 @@
         <link rel="mask-icon" href="/safari-pinned-tab.svg?v=1.0" color="#5bbad5">
         <link rel="shortcut icon" href="/favicon.ico?v=1.0">
 
-        <link rel="stylesheet" href="../css/normalize.css">
-        <link rel="stylesheet" href="../css/main.css">
-        <link rel="stylesheet" href="../css/socicon.css">
+
+        <link rel="stylesheet" href="../../css/normalize.css">
+        <link rel="stylesheet" href="../../css/main.css">
+        <link rel="stylesheet" href="../../css/socicon.css">
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
 
@@ -28,45 +29,43 @@
         <!-- Add your site or application content here -->
     <div class="header-container">
       <header class="wrapper clearfix">
-        <img src="../img/full_logo2_white.svg" alt="Nick Warren" width="325" height="45">
+        <img src="/img/full_logo2_white.svg" alt="Nick Warren" width="325" height="45">
         <div class="centerDiv">
           <nav class="topnav">
-            <li><a href="../index.php">Home</a></li>
-            <li><a href="../projects.php">Projects</a></li>
-            <li><a href="../media.php">Media</a></li>
+            <li><a href="../../index.php">Home</a></li>
+            <li class="active"><a href="../../projects.php">Projects</a></li>
+            <li><a href="../../media.php">Media</a></li>
           </nav>
         </div>
   		</header>
     </div>
 
-<!--=========================================================================-->
-
     <div class="main-container Site-content">
       <div class="main wrapper clearfix">
-
-        <article class="leftpage">
+        <article>
           <header>
-            <h2>OneTesla TinyTesla DRSSTC - October 2017</h2>
+            <h2>RCExplorer Tricopter V4 - August 2016</h2>
           </header>
           <section>
             <span>
-              <p>I have for some time wanted to experiment with high-voltage;
-              specifically a Tesla Coil. Recently, a Massachusetts company called
-              <a href="onetesla.com">OneTesla</a> has started offering relatively
-              inexpensive kits to build a type of coil called a DRSSTC, or Dual
-              Resonant Solid-State Tesla Coil. This design of coil can produce a
-              visually impressive display of streamer arcs from a comparatively
-              low input power.</p>
+              Thanks to the brilliant design from David Windestål of <a href="http://rcexplorer.se">Rcexplorer.se</a>, I built a folding tricopter based on the custom FCF3 tricopter Flight Controller. 
+              The tricopter consists of three carbon-fibre booms with 2217 size brushless DC motors mounted on each.
+              The rear boom uses David's tail-rotor tilt mechanism to control its thrust direction.
+              The folding booms are held in place by friction between the upper plate (FCF3 PCB) and the lower carbon-fibre plate.
+              This friction is adjustable based on the tightness of four M3 screws.
+              <br><br>
+              Powered from a 4S (14.8V) Li-Polymer Battery, the tricopter theoretically should be able to fly for 10-20 minutes, but I have not flown enough to verify this.
+              On a 4S pack, the model has plenty of power, and manoeuvres quite well.
+              The model also has a custom 3d-printed canopy (printed on my <a href="../3dprinting/prusai3mk2.php">Prusa i3 MK2</a>) to protect the reciever and FCF3 header pins.
+              <br><br>
             </span>
+          </section>
         </article>
-
-        <aside class="rightaside">
-          <img src="../img/LargeStreamers.jpg" alt="Image Missing: TinyTesla in Operation">
-        </aside>
+        <footer>
+          <h3 class="returnlink"><a href="../../projects.php">Back to Projects Index</a></h3>
+        </footer>
       </div>
     </div>
-
-<!--=========================================================================-->
 
     <div class="footer-container">
       <footer class="wrapper">

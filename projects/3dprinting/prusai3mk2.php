@@ -29,7 +29,7 @@
         <!-- Add your site or application content here -->
     <div class="header-container">
       <header class="wrapper clearfix">
-        <img src="/img/full_logo2_white.svg" alt="Nick Warren" width="325" height="45">
+        <img src="../../img/full_logo2_white.svg" alt="Nick Warren" width="325" height="45">
         <div class="centerDiv">
           <nav class="topnav">
             <li><a href="../../index.php">Home</a></li>
@@ -48,12 +48,18 @@
           </header>
           <section>
             <span>
-              I decided to build a 3D Printer this summer, as I was living in Reading, and wanted to take an additional side-project alongside work.
-              In addition, the ability to fabricate custom parts for RC model aircraft was desired.
-              <br><br>
+              <p>I decided to build a 3D Printer this summer, as I was living in
+              Reading, and wanted to take an additional side-project alongside
+              work. In addition, the ability to fabricate custom parts for RC
+              model aircraft was desired.</p>
+
               After significant research, I decided to build a Prusa i3 design.
-              Initially I looked at assembling a printer from parts (Ebay, naturally), but after an email conversation with <a href="http://www.prusa3d.com/">Prusa Research</a>, the original designer of the i3, I ordered a kit for their newly released MK2 printer.
-              Assembling the kit was mostly painless, with Prusa's 24/7 live support chat proving very helpful
+              Initially I looked at assembling a printer from parts (Ebay,
+              naturally), but after an email conversation with
+              <a href="http://www.prusa3d.com/">Prusa Research</a>, the original
+              designer of the i3, I ordered a kit for their newly released MK2
+              printer. Assembling the kit was mostly painless, with Prusa's 24/7
+              live support chat proving very helpful
             </span>
               <br><hr>
               <div>
@@ -63,10 +69,13 @@
               </div>
               <hr>
               <span>
-                in September, I endeavoured to build an enclosure for the printer. I had found that with PLA, there were no issues with prints warping or with printbed adherance.
-                With ABS prints however, these issues caused three-quarters of prints to fail. #
-                I realised that as the printer was set up on a table by a window, and there was a draft passing across the printer.
-                To remedy this, I planned to build an <a href="mk2enclosure.php">enclosure</a> and accompanying <a href="http://octoprint.niwarren.co.uk">octoprint setup</a> for the printer
+                <p>in September, I endeavoured to build an enclosure for the printer.
+                I had found that with PLA, there were no issues with prints warping
+                or with printbed adherance. With ABS prints however, these issues
+                caused three-quarters of prints to fail. I realised that as the
+                printer was set up on a table by a window, and there was a draft
+                passing across the printer. To remedy this, I planned to build an
+                <a href="mk2enclosure.php">enclosure</a> and accompanying octoprint setup for the printer.</p>
               </span>
           </section>
         </article>
