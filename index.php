@@ -48,9 +48,9 @@
             <h2>Welcome to my site!</h2>
             </header>
             <section>
-                This is my personal website - on it you can find information about projects which I have delved into, and a selection of photographs I have taken in the last few years.<br><br>
+                <p>This is my personal website - on it you can find information about projects which I have delved into, and a selection of photographs I have taken in the last few years.<br><br>
                 I am a graduate of the <a href="http://www.reading.ac.uk/">University of Reading</a> in Electronic Engineering (BEng). I currently work as a KTP Associate Control Engineer for PB Design and Developments Ltd. in Somerset.<br>
-                In my spare time, I like playing the French Horn, tinkering with all sorts of tech and I'm also a fairly keen Archer!<br><br>
+                In my spare time, I like playing the French Horn, tinkering with all sorts of tech and I'm also a fairly keen Archer!</p>
                 <?php
                   $str   = @file_get_contents('/proc/uptime');
                   $num   = floatval($str);
@@ -61,7 +61,7 @@
                   echo "This server has been up for " . $days . "d, " . $hours . "h, " . $mins . "m. ";// echo the results
                 ?>
                 <a href="./phpsysinfo/index.php">Server Info.</a>
-                <br>
+                <br><br>
             </section>
           </article>
         <aside class="rightaside">

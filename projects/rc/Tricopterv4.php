@@ -29,7 +29,7 @@
         <!-- Add your site or application content here -->
     <div class="header-container">
       <header class="wrapper clearfix">
-        <img src="/img/full_logo2_white.svg" alt="Nick Warren" width="325" height="45">
+        <img src="../../img/full_logo2_white.svg" alt="Nick Warren" width="325" height="45">
         <div class="centerDiv">
           <nav class="topnav">
             <li><a href="../../index.php">Home</a></li>
@@ -48,15 +48,21 @@
           </header>
           <section>
             <span>
-              Thanks to the brilliant design from David Windestål of <a href="http://rcexplorer.se">Rcexplorer.se</a>, I built a folding tricopter based on the custom FCF3 tricopter Flight Controller. 
-              The tricopter consists of three carbon-fibre booms with 2217 size brushless DC motors mounted on each.
-              The rear boom uses David's tail-rotor tilt mechanism to control its thrust direction.
-              The folding booms are held in place by friction between the upper plate (FCF3 PCB) and the lower carbon-fibre plate.
-              This friction is adjustable based on the tightness of four M3 screws.
-              <br><br>
-              Powered from a 4S (14.8V) Li-Polymer Battery, the tricopter theoretically should be able to fly for 10-20 minutes, but I have not flown enough to verify this.
-              On a 4S pack, the model has plenty of power, and manoeuvres quite well.
-              The model also has a custom 3d-printed canopy (printed on my <a href="../3dprinting/prusai3mk2.php">Prusa i3 MK2</a>) to protect the reciever and FCF3 header pins.
+              <p>Thanks to the brilliant design from David Windestål of
+              <a href="http://rcexplorer.se">Rcexplorer.se</a>, I built a folding
+              tricopter based on the custom FCF3 tricopter Flight Controller. The
+              tricopter consists of three carbon-fibre booms with 2217 size brushless
+              DC motors mounted on each. The rear boom uses David's tail-rotor tilt
+              mechanism to control its thrust direction. The folding booms are held
+              in place by friction between the upper plate (FCF3 PCB) and the lower
+              carbon-fibre plate. This friction is adjustable based on the tightness
+              of four M3 screws.</p>
+              <p>Powered from a 4S (14.8V) Li-Polymer Battery, the tricopter
+              theoretically should be able to fly for 10-20 minutes, but I have
+              not flown enough to verify this. On a 4S pack, the model has plenty
+              of power, and manoeuvres quite well. The model also has a custom
+              3d-printed canopy (printed on my <a href="../3dprinting/prusai3mk2.php">Prusa i3 MK2</a>)
+              to protect the reciever and FCF3 header pins.</p>
               <br><br>
             </span>
           </section>

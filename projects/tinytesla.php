@@ -44,12 +44,11 @@
     <div class="main-container Site-content">
       <div class="main wrapper clearfix">
 
-        <article class="leftpage">
-          <header>
-            <h2>OneTesla TinyTesla DRSSTC - October 2017</h2>
-          </header>
-          <section>
-            <span>
+        <section>
+          <article class="leftpage">
+            <header>
+              <h2>OneTesla TinyTesla DRSSTC - October 2017</h2>
+            </header>
               <p>I have for some time wanted to experiment with high-voltage;
               specifically a Tesla Coil. Recently, a Massachusetts company called
               <a href="onetesla.com">OneTesla</a> has started offering relatively
@@ -57,12 +56,30 @@
               Resonant Solid-State Tesla Coil. This design of coil can produce a
               visually impressive display of streamer arcs from a comparatively
               low input power.</p>
-            </span>
-        </article>
 
-        <aside class="rightaside">
-          <img src="../img/LargeStreamers.jpg" alt="Image Missing: TinyTesla in Operation">
-        </aside>
+              <p>The nature of DRSSTCs allows the interruption of their streamer
+              arcs within audio-frequency ranges. This allows DRSSTCs to act as
+              speakers, using the rapid heating and cooling of the air surrounding
+              the arcs to generate sound waves in the air. Even a low-power small
+              coil such as this can be extremely loud.</p>
+
+              <p>In order to control the audio of the Tesla Coil, a specially
+              designed USB Midi device which outputs signals over a Fibre-optic
+              connection is used. This in my opinion is not a great solution, as
+              the device requires a laptop to control it. I plan to design a
+              standalone controller using an SD card to store files for playback
+              and control dials for volume and frequency. An additional feature
+              of this controller will be a MIDI input port, to enable live playback
+              on a MIDI keyboard for example to the coil.</p>
+          </article>
+
+          <aside class="rightaside">
+            <img src="../img/placeholderTinyTesla.png" alt="Image Missing: TinyTesla in Operation" width="300" height="450">
+          </aside>
+        </section>
+
+
+
       </div>
     </div>
 
