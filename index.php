@@ -61,6 +61,8 @@
                   echo "This server has been up for " . $days . "d, " . $hours . "h, " . $mins . "m. ";// echo the results
                 ?>
                 <a href="./phpsysinfo/index.php">Server Info.</a>
+                <br>
+                Also check out my <a href="//<?php print $_SERVER{'SERVER_NAME'}; ?>:8888">Octoprint Server</a>
                 <br><br>
             </section>
           </article>
