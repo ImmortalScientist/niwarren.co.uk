@@ -53,7 +53,7 @@
             <p> The Ikea unit was assembled, and holes cut in the back panel to allow
             power and data cables to pass into the enclosure. A Raspberry Pi Model 3
             was attached to the exterior back panel with an optoisolated relay board.
-            <a href="//<?php print $_SERVER{'SERVER_NAME'}; ?>:8069">Octoprint</a> was installed and custom scripts written to allow control of the
+            <a href="//<?php print $_SERVER{'SERVER_NAME'}; ?>:8888">Octoprint</a> was installed and custom scripts written to allow control of the
             printer's mains power, and LED lighting. A camera was mounted to the wall
             of the printer, pointing at the printbed, to monitor progress remotely
             and record time-lapse videos of interesting prints.</p>
