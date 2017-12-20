@@ -80,18 +80,21 @@
         </div>
       </div>
 
-      <div class="footer-container">
-        <footer class="wrapper">
-          <div class="footerbuttons">
-            <ul class="soc">
-                <li><a class="soc-facebook" href="https://www.facebook.com/immortalscientist"></a></li>
-                <li><a class="soc-linkedin" href="https://uk.linkedin.com/in/nicholas-warren-358244a7"></a></li>
-                <li><a class="soc-github soc-icon-last" href="https://github.com/ImmortalScientist"></a></li>
-            </ul>
-          </div>
-            <p>Copyright N.Warren &copy 2016-<?php echo date("Y")?></p>
-        </footer>
-      </div>
+<!--=========================================================================-->
+
+    <div class="footer-container">
+      <footer class="wrapper">
+        <div class="footerbuttons">
+          <ul class="soc">
+              <li><a class="soc-mail" href="mailto:mail@niwarren.co.uk"></a></li>
+              <li><a class="soc-facebook" href="https://www.facebook.com/immortalscientist"></a></li>
+              <li><a class="soc-linkedin" href="https://uk.linkedin.com/in/nicholas-warren-358244a7"></a></li>
+              <li><a class="soc-github soc-icon-last" href="https://github.com/ImmortalScientist"></a></li>
+          </ul>
+        </div>
+        <p>Copyright N.Warren &copy; 2016-<?php echo date("Y")?></p>
+      </footer>
+    </div>
 
         <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
