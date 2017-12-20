@@ -62,7 +62,7 @@
                 ?>
                 <a href="./phpsysinfo/index.php">Server Info.</a>
                 <br>
-                Also check out my <a href="//<?php print $_SERVER{'SERVER_NAME'}; ?>:8888">Octoprint Ser</a>
+                Also check out my <a href="//<?php print $_SERVER{'SERVER_NAME'}; ?>:8888">Octoprint Server</a>
                 <br><br>
             </section>
           </article>
@@ -79,7 +79,7 @@
       <footer class="wrapper">
         <div class="footerbuttons">
           <ul class="soc">
-              <li><a class="soc-mail" href="mailto:info@niwarren.co.uk"></a></li>
+              <li><a class="soc-mail" href="http://www.google.com/recaptcha/mailhide/d?k=01KHMvJYmvVOucLe-9W8F8uw==&amp;c=C1mEBfA75Frb8jo9uPG6CwFWjt68ZFQKxLEmETzhGnw=" onclick="window.open('http://www.google.com/recaptcha/mailhide/d?k\x3d01KHMvJYmvVOucLe-9W8F8uw\x3d\x3d\x26c\x3dC1mEBfA75Frb8jo9uPG6CwFWjt68ZFQKxLEmETzhGnw\x3d', '', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=500,height=300'); return false;" title="Reveal this e-mail address"></a></li>
               <li><a class="soc-facebook" href="https://www.facebook.com/immortalscientist"></a></li>
               <li><a class="soc-linkedin" href="https://uk.linkedin.com/in/nicholas-warren-358244a7"></a></li>
               <li><a class="soc-github soc-icon-last" href="https://github.com/ImmortalScientist"></a></li>
