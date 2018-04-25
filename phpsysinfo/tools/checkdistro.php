@@ -78,7 +78,7 @@ class CommonFunctions
         }
     }
 
-    public static function executeProgram($strProgramname, $strArgs, &$strBuffer, $booErrorRep = true)
+    public static function executeProgram($strProgramname, $strArgs, &$strBuffer, $booErrorRep = true, $timeout = 30)
     {
         global $lsb;
         $strBuffer = '';
@@ -101,6 +101,11 @@ class CommonFunctions
             return true;
         }
 
+        return false;
+    }
+
+    public static function readenv($strElem, &$strBuffer)
+    {
         return false;
     }
 
