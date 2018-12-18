@@ -62,7 +62,7 @@
                 ?>
                 <a href="./phpsysinfo/index.php">Server Info.</a>
                 <br>
-                Also check out my <a href="//<?php print $_SERVER{'SERVER_NAME'}; ?>:8888">Octoprint Server</a>
+                Also check out my <a href="http://niwarren.co.uk:8888">Octoprint Server</a>
                 <br><br>
             </section>
           </article>
