@@ -14,9 +14,9 @@
         <link rel="mask-icon" href="/safari-pinned-tab.svg?v=1.0" color="#5bbad5">
         <link rel="shortcut icon" href="/favicon.ico?v=1.0">
 
-        <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/main.css">
-        <link rel="stylesheet" href="css/socicon.css">
+        <link rel="stylesheet" href="../css/normalize.css">
+        <link rel="stylesheet" href="../css/main.css">
+        <link rel="stylesheet" href="../css/socicon.css">
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
 
@@ -31,9 +31,9 @@
         <img src="img/full_logo2_white.svg" alt="Nick Warren" width="325" height="45">
         <div class="centerDiv">
           <nav class="topnav">
-            <li><a href="index.php">Home</a></li>
-            <li><a href="projects.php">Projects</a></li>
-            <li><a href="media.php">Media</a></li>
+            <li><a href="../index.php">Home</a></li>
+            <li><a href="../projects.php">Projects</a></li>
+            <li><a href="../media.php">Media</a></li>
           </nav>
         </div>
   		</header>
