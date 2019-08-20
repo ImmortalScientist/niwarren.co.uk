@@ -65,7 +65,7 @@
 
               <div class="imgWrap">
                 <a href="./projects/tinytesla.php">
-                  <img src="img/underconstruction.png" alt="OneTesla TinyTesla" height="200px" width="200px"/>
+                  <img src="img/TinyTesla_thumb.png" alt="OneTesla TinyTesla" height="200px" width="200px"/>
                   <h2 class="imgWrapDescription">OneTesla TinyTesla</h2>
                 </a>
               </div>
