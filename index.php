@@ -48,9 +48,9 @@
             <h2>Welcome to my site!</h2>
             </header>
             <section>
-                <p>This is my personal website - on it you can find information about projects which I have delved into, and a selection of photographs I have taken in the last few years.<br><br>
-                I am a graduate of the <a href="http://www.reading.ac.uk/">University of Reading</a> in Electronic Engineering (BEng). I currently work as a KTP Associate Control Engineer for PB Design and Developments Ltd. in Somerset.<br>
-                In my spare time, I like playing the French Horn, tinkering with all sorts of tech and I'm also a fairly keen Archer!</p>
+                <p>This is my personal website - on it you can find information about projects which I have worked on, and a selection of photographs I have taken in the last few years.<br><br>
+                I am a graduate of the <a href="http://www.reading.ac.uk/">University of Reading</a> in Electronic Engineering (BEng), currently seeking opportunities in Electronic Engineering in the Bristol area.<br>
+                In my spare time, I like playing the French Horn, and tinkering with all sorts of tech. I'm in the early stages of converting an MG TF sports car to electric propulsion, and this project will be documented as best I can here.</p>
                 <?php
                   $str   = @file_get_contents('/proc/uptime');
                   $num   = floatval($str);

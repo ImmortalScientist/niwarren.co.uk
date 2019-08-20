@@ -47,7 +47,20 @@
         <div class="main wrapper clearfix">
 
           <article>
-            <h3>Projects Index</h3>
+            <h3>Active Projects Index</h3>
+            <div class="imgWrap-container">
+
+              <div class="imgWrap">
+                <a href="./projects/mg_etf.php">
+                  <img src="img/underconstruction.png" alt="MG eTF" height="200px" width="200px"/>
+                  <h2 class="imgWrapDescription">Electric MG TF Conversion</h2>
+                </a>
+              </div>
+            </div>
+
+            <br><hr><br>
+
+            <h3>Past Projects</h3>
             <div class="imgWrap-container">
 
               <div class="imgWrap">
@@ -56,7 +69,7 @@
                   <h2 class="imgWrapDescription">OneTesla TinyTesla</h2>
                 </a>
               </div>
-              
+
               <div class="imgWrap">
                 <a href="./projects/rc/Tricopterv4.php">
                   <img src="img/tricopter_v4_thumb.jpg" alt="RCExplorer Tricopter v4">
