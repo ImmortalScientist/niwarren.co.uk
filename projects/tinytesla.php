@@ -51,7 +51,7 @@
             </header>
               <p>I have for some time wanted to experiment with high-voltage;
               specifically a Tesla Coil. Recently, a Massachusetts company called
-              <a href="onetesla.com">OneTesla</a> has started offering relatively
+              <a href="https://onetesla.com/">OneTesla</a> has started offering relatively
               inexpensive kits to build a type of coil called a DRSSTC, or Dual
               Resonant Solid-State Tesla Coil. This design of coil can produce a
               visually impressive display of streamer arcs from a comparatively
