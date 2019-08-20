@@ -1,25 +1,14 @@
 <?php
 /**
- * ipmiutil sensor class
+ * ipmiutil sensor class, getting information from ipmi-sensors
  *
  * PHP version 5
  *
  * @category  PHP
  * @package   PSI_Sensor
- * @author    Michael Cramer <BigMichi1@users.sourceforge.net>
- * @copyright 2009 phpSysInfo
- * @license   http://opensource.org/licenses/gpl-2.0.php GNU General Public License
- * @version   SVN: $Id: class.ipmiutil.inc.php 661 2012-08-27 11:26:39Z namiltd $
- * @link      http://phpsysinfo.sourceforge.net
- */
- /**
- * getting information from ipmi-sensors
- *
- * @category  PHP
- * @package   PSI_Sensor
- * @author    Michael Cramer <BigMichi1@users.sourceforge.net>
- * @copyright 2009 phpSysInfo
- * @license   http://opensource.org/licenses/gpl-2.0.php GNU General Public License
+ * @author    Mieczyslaw Nalewaj <namiltd@users.sourceforge.net>
+ * @copyright 2014 phpSysInfo
+ * @license   http://opensource.org/licenses/gpl-2.0.php GNU General Public License version 2, or (at your option) any later version
  * @version   Release: 3.0
  * @link      http://phpsysinfo.sourceforge.net
  */
@@ -49,7 +38,7 @@ class IPMIutil extends Sensors
             }
             break;
         default:
-            $this->error->addConfigError('__construct()', 'PSI_SENSOR_IPMIUTIL_ACCESS');
+            $this->error->addConfigError('__construct()', '[sensor_ipmiutil] ACCESS');
             break;
         }
     }
@@ -63,7 +52,10 @@ class IPMIutil extends Sensors
     {
         foreach ($this->_lines as $line) {
             $buffer = preg_split("/\s*\|\s*/", $line);
-            if (isset($buffer[2]) && $buffer[2] == "Temperature" && $buffer[1] == "Full" && isset($buffer[6]) && preg_match("/^(\S+)\sC$/", $buffer[6], $value)) {
+            if (isset($buffer[2]) && $buffer[2] == "Temperature"
+               && $buffer[1] == "Full"
+               && isset($buffer[6]) && preg_match("/^(\S+)\sC$/", $buffer[6], $value)
+               && $buffer[5] !== "Init") {
                 $dev = new SensorDevice();
                 $dev->setName($buffer[4]);
                 $dev->setValue($value[1]);
@@ -90,7 +82,10 @@ class IPMIutil extends Sensors
     {
         foreach ($this->_lines as $line) {
             $buffer = preg_split("/\s*\|\s*/", $line);
-            if (isset($buffer[2]) && $buffer[2] == "Voltage" && $buffer[1] == "Full" && isset($buffer[6]) && preg_match("/^(\S+)\sV$/", $buffer[6], $value)) {
+            if (isset($buffer[2]) && $buffer[2] == "Voltage"
+               && $buffer[1] == "Full"
+               && isset($buffer[6]) && preg_match("/^(\S+)\sV$/", $buffer[6], $value)
+               && $buffer[5] !== "Init") {
                 $dev = new SensorDevice();
                 $dev->setName($buffer[4]);
                 $dev->setValue($value[1]);
@@ -123,7 +118,10 @@ class IPMIutil extends Sensors
     {
         foreach ($this->_lines as $line) {
             $buffer = preg_split("/\s*\|\s*/", $line);
-            if (isset($buffer[2]) && $buffer[2] == "Fan" && $buffer[1] == "Full" && isset($buffer[6]) && preg_match("/^(\S+)\sRPM$/", $buffer[6], $value)) {
+            if (isset($buffer[2]) && $buffer[2] == "Fan"
+               && $buffer[1] == "Full"
+               && isset($buffer[6]) && preg_match("/^(\S+)\sRPM$/", $buffer[6], $value)
+               && $buffer[5] !== "Init") {
                 $dev = new SensorDevice();
                 $dev->setName($buffer[4]);
                 $dev->setValue($value[1]);
@@ -157,7 +155,10 @@ class IPMIutil extends Sensors
     {
         foreach ($this->_lines as $line) {
             $buffer = preg_split("/\s*\|\s*/", $line);
-            if (isset($buffer[2]) && $buffer[2] == "Current" && $buffer[1] == "Full" && isset($buffer[6]) && preg_match("/^(\S+)\sW$/", $buffer[6], $value)) {
+            if (isset($buffer[2]) && $buffer[2] == "Current"
+               && $buffer[1] == "Full"
+               && isset($buffer[6]) && preg_match("/^(\S+)\sW$/", $buffer[6], $value)
+               && $buffer[5] !== "Init") {
                 $dev = new SensorDevice();
                 $dev->setName($buffer[4]);
                 $dev->setValue($value[1]);
@@ -184,7 +185,10 @@ class IPMIutil extends Sensors
     {
         foreach ($this->_lines as $line) {
             $buffer = preg_split("/\s*\|\s*/", $line);
-            if (isset($buffer[2]) && $buffer[2] == "Current" && $buffer[1] == "Full" && isset($buffer[6]) && preg_match("/^(\S+)\sA$/", $buffer[6], $value)) {
+            if (isset($buffer[2]) && $buffer[2] == "Current"
+               && $buffer[1] == "Full"
+               && isset($buffer[6]) && preg_match("/^(\S+)\sA$/", $buffer[6], $value)
+               && $buffer[5] !== "Init") {
                 $dev = new SensorDevice();
                 $dev->setName($buffer[4]);
                 $dev->setValue($value[1]);
@@ -209,6 +213,40 @@ class IPMIutil extends Sensors
     }
 
     /**
+     * get other information
+     *
+     * @return void
+     */
+    private function _other()
+    {
+        foreach ($this->_lines as $line) {
+            $buffer = preg_split("/\s*\|\s*/", $line);
+            if (isset($buffer[1]) && $buffer[1] == "Compact"
+               && $buffer[5] !== "Init"
+               && $buffer[5] !== "Unknown"
+               && $buffer[5] !== "NotAvailable") {
+                $dev = new SensorDevice();
+                $dev->setName($buffer[4].' ('.$buffer[2].')');
+
+                $buffer5s = preg_split("/\s+/", $buffer5 = $buffer[5]);
+                if (isset($buffer5s[1])) {
+                    $value = hexdec($buffer5s[0]) & 0xff;
+                    if ($buffer5s[1] === 'DiscreteEvt') {
+                        $dev->setValue('0x'.dechex($value));
+                    } elseif (($buffer5s[1] === 'DiscreteUnit') && ($value > 0)) {
+                        $dev->setValue('0x'.dechex($value - 1));
+                    } else {
+                        $dev->setValue($buffer5);
+                    }
+                } else {
+                    $dev->setValue($buffer5);
+                }
+                $this->mbinfo->setMbOther($dev);
+            }
+        }
+    }
+
+    /**
      * get the information
      *
      * @see PSI_Interface_Sensor::build()
@@ -222,5 +260,6 @@ class IPMIutil extends Sensors
         $this->_fans();
         $this->_power();
         $this->_current();
+        $this->_other();
     }
 }

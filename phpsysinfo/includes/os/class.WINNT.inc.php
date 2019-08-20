@@ -8,7 +8,7 @@
  * @package   PSI WINNT OS class
  * @author    Michael Cramer <BigMichi1@users.sourceforge.net>
  * @copyright 2009 phpSysInfo
- * @license   http://opensource.org/licenses/gpl-2.0.php GNU General Public License
+ * @license   http://opensource.org/licenses/gpl-2.0.php GNU General Public License version 2, or (at your option) any later version
  * @version   SVN: $Id: class.WINNT.inc.php 699 2012-09-15 11:57:13Z namiltd $
  * @link      http://phpsysinfo.sourceforge.net
  */
@@ -21,7 +21,7 @@
  * @package   PSI WINNT OS class
  * @author    Michael Cramer <BigMichi1@users.sourceforge.net>
  * @copyright 2009 phpSysInfo
- * @license   http://opensource.org/licenses/gpl-2.0.php GNU General Public License
+ * @license   http://opensource.org/licenses/gpl-2.0.php GNU General Public License version 2, or (at your option) any later version
  * @version   Release: 3.0
  * @link      http://phpsysinfo.sourceforge.net
  */
@@ -47,6 +47,13 @@ class WINNT extends OS
      * @var array
      */
     private $_Win32_Processor = null;
+
+     /**
+     * holds the data from WMI Win32_PerfFormattedData_PerfOS_Processor
+     *
+     * @var array
+     */
+    private $_Win32_PerfFormattedData_PerfOS_Processor = null;
 
     /**
      * holds the data from systeminfo command
@@ -86,7 +93,7 @@ class WINNT extends OS
     /**
      * reads the data from WMI Win32_OperatingSystem
      *
-     * @var array
+     * @return array
      */
     private function _get_Win32_OperatingSystem()
     {
@@ -97,7 +104,7 @@ class WINNT extends OS
     /**
      * reads the data from WMI Win32_ComputerSystem
      *
-     * @var array
+     * @return array
      */
     private function _get_Win32_ComputerSystem()
     {
@@ -108,18 +115,38 @@ class WINNT extends OS
     /**
      * reads the data from WMI Win32_Processor
      *
-     * @var array
+     * @return array
      */
     private function _get_Win32_Processor()
     {
-        if ($this->_Win32_Processor === null) $this->_Win32_Processor = CommonFunctions::getWMI($this->_wmi, 'Win32_Processor', array('LoadPercentage', 'AddressWidth', 'Name', 'L2CacheSize', 'CurrentClockSpeed', 'ExtClock', 'NumberOfCores', 'MaxClockSpeed'));
+        if ($this->_Win32_Processor === null) $this->_Win32_Processor = CommonFunctions::getWMI($this->_wmi, 'Win32_Processor', array('LoadPercentage', 'AddressWidth', 'Name', 'L2CacheSize', 'L3CacheSize', 'CurrentClockSpeed', 'ExtClock', 'NumberOfCores', 'NumberOfLogicalProcessors', 'MaxClockSpeed'));
         return $this->_Win32_Processor;
+    }
+
+    /**
+     * reads the data from WMI Win32_PerfFormattedData_PerfOS_Processor
+     *
+     * @return array
+     */
+    private function _get_Win32_PerfFormattedData_PerfOS_Processor()
+    {
+        if ($this->_Win32_PerfFormattedData_PerfOS_Processor === null) {
+            $cpubuffer = CommonFunctions::getWMI($this->_wmi, 'Win32_PerfFormattedData_PerfOS_Processor', array('Name', 'PercentProcessorTime'));
+            $this->_Win32_PerfFormattedData_PerfOS_Processor = array();
+            if ($cpubuffer) foreach ($cpubuffer as $cpu) {
+                if (isset($cpu['Name']) && isset($cpu['PercentProcessorTime'])) {
+                    $this->_Win32_PerfFormattedData_PerfOS_Processor['cpu'.$cpu['Name']] = $cpu['PercentProcessorTime'];
+                }
+            }
+        }
+
+        return $this->_Win32_PerfFormattedData_PerfOS_Processor;
     }
 
     /**
      * reads the data from systeminfo
      *
-     * @var string
+     * @return string
      */
     private function _get_systeminfo()
     {
@@ -161,7 +188,17 @@ class WINNT extends OS
         }
         if ($buffer && isset($buffer[0])) {
             if (isset($buffer[0]['CodeSet'])) {
-                $this->_codepage = 'windows-'.$buffer[0]['CodeSet'];
+                $codeset = $buffer[0]['CodeSet'];
+                if ($codeset == 932) {
+                    $codename = ' (SJIS)';
+                } elseif ($codeset == 949) {
+                    $codename = ' (EUC-KR)';
+                } elseif ($codeset == 950) {
+                    $codename = ' (BIG-5)';
+                } else {
+                    $codename = '';
+                }
+                $this->_codepage = 'windows-'.$codeset.$codename;
             }
             if (isset($buffer[0]['OSLanguage'])) {
                 $lang = "";
@@ -188,12 +225,32 @@ class WINNT extends OS
     private function _devicelist($strType)
     {
         if (empty($this->_wmidevices)) {
-            $this->_wmidevices = CommonFunctions::getWMI($this->_wmi, 'Win32_PnPEntity', array('Name', 'PNPDeviceID'));
+            if (defined('PSI_SHOW_DEVICES_INFOS') && PSI_SHOW_DEVICES_INFOS) {
+                $this->_wmidevices = CommonFunctions::getWMI($this->_wmi, 'Win32_PnPEntity', array('Name', 'PNPDeviceID', 'Manufacturer', 'PNPClass'));
+            } else {
+                $this->_wmidevices = CommonFunctions::getWMI($this->_wmi, 'Win32_PnPEntity', array('Name', 'PNPDeviceID'));
+            }
         }
         $list = array();
         foreach ($this->_wmidevices as $device) {
             if (substr($device['PNPDeviceID'], 0, strpos($device['PNPDeviceID'], "\\") + 1) == ($strType."\\")) {
-                $list[] = $device['Name'];
+                if (defined('PSI_SHOW_DEVICES_INFOS') && PSI_SHOW_DEVICES_INFOS) {
+                    if (!isset($device['PNPClass']) || ($device['PNPClass']==='USB')) {
+                        $device['PNPClass'] = null;
+                    }
+                    if (preg_match('/^\(.*\)$/', $device['Manufacturer'])) {
+                        $device['Manufacturer'] = null;
+                    }
+                    if (defined('PSI_SHOW_DEVICES_SERIAL') && PSI_SHOW_DEVICES_SERIAL
+                       && ($strType==='USB') && preg_match('/\\\\(\w+)$/', $device['PNPDeviceID'], $buf)) {
+                        $device['Serial'] = $buf[1];
+                    } else {
+                        $device['Serial'] = null;
+                    }
+                    $list[] = array('Name'=>$device['Name'], 'Manufacturer'=>$device['Manufacturer'], 'Product'=>$device['PNPClass'], 'Serial'=>$device['Serial']);
+                } else {
+                    $list[] = array('Name'=>$device['Name']);
+                }
             }
         }
 
@@ -208,7 +265,7 @@ class WINNT extends OS
     private function _hostname()
     {
         if (PSI_USE_VHOST === true) {
-            if ($hnm = getenv('SERVER_NAME')) $this->sys->setHostname($hnm);
+            if (CommonFunctions::readenv('SERVER_NAME', $hnm)) $this->sys->setHostname($hnm);
         } else {
             $buffer = $this->_get_Win32_ComputerSystem();
             if (!$buffer && CommonFunctions::executeProgram('reg', 'query HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\ComputerName\\ActiveComputerName /v ComputerName', $strBuf, false) && (strlen($strBuf) > 0) && preg_match("/^\s*ComputerName\s+REG_SZ\s+(\S+)\s*$/mi", $strBuf, $buffer2)) {
@@ -218,18 +275,19 @@ class WINNT extends OS
                 $result = $buffer[0]['Name'];
                 $ip = gethostbyname($result);
                 if ($ip != $result) {
-                    $long = ip2long($ip);
-                    if (($long >= 167772160 && $long <= 184549375) ||
-                        ($long >= -1408237568 && $long <= -1407188993) ||
-                        ($long >= -1062731776 && $long <= -1062666241) ||
-                        ($long >= 2130706432 && $long <= 2147483647) || $long == -1) {
-                        $this->sys->setHostname($result); //internal ip
+                    if ((version_compare("10.0.0.0", $ip, "<=") && version_compare($ip, "10.255.255.255", "<=")) ||
+                        (version_compare("172.16.0.0", $ip, "<=") && version_compare($ip, "172.31.255.255", "<=")) ||
+                        (version_compare("192.168.0.0", $ip, "<=") && version_compare($ip, "192.168.255.255", "<=")) ||
+                        (version_compare("127.0.0.0", $ip, "<=") && version_compare($ip, "127.255.255.255", "<=")) ||
+                        (version_compare("169.254.1.0", $ip, "<=") && version_compare($ip, "169.254.254.255", "<=")) ||
+                        (version_compare("255.255.255.255", $ip, "=="))) {
+                        $this->sys->setHostname($result); // internal ip
                     } else {
                         $this->sys->setHostname(gethostbyaddr($ip));
                     }
                 }
             } else {
-                if ($hnm = getenv('COMPUTERNAME')) $this->sys->setHostname($hnm);
+                if (CommonFunctions::readenv('COMPUTERNAME', $hnm)) $this->sys->setHostname($hnm);
             }
         }
     }
@@ -245,22 +303,35 @@ class WINNT extends OS
         $result = 0;
         date_default_timezone_set('UTC');
         $buffer = $this->_get_Win32_OperatingSystem();
-        if ($buffer) {
-            $byear = intval(substr($buffer[0]['LastBootUpTime'], 0, 4));
-            $bmonth = intval(substr($buffer[0]['LastBootUpTime'], 4, 2));
-            $bday = intval(substr($buffer[0]['LastBootUpTime'], 6, 2));
-            $bhour = intval(substr($buffer[0]['LastBootUpTime'], 8, 2));
-            $bminute = intval(substr($buffer[0]['LastBootUpTime'], 10, 2));
-            $bseconds = intval(substr($buffer[0]['LastBootUpTime'], 12, 2));
-            $lyear = intval(substr($buffer[0]['LocalDateTime'], 0, 4));
-            $lmonth = intval(substr($buffer[0]['LocalDateTime'], 4, 2));
-            $lday = intval(substr($buffer[0]['LocalDateTime'], 6, 2));
-            $lhour = intval(substr($buffer[0]['LocalDateTime'], 8, 2));
-            $lminute = intval(substr($buffer[0]['LocalDateTime'], 10, 2));
-            $lseconds = intval(substr($buffer[0]['LocalDateTime'], 12, 2));
-            $boottime = mktime($bhour, $bminute, $bseconds, $bmonth, $bday, $byear);
-            $localtime = mktime($lhour, $lminute, $lseconds, $lmonth, $lday, $lyear);
+        if ($buffer && ($buffer[0]['LastBootUpTime'] !== null)) {
+            $local = $buffer[0]['LocalDateTime'];
+            $boot = $buffer[0]['LastBootUpTime'];
+
+            $lyear = intval(substr($local, 0, 4));
+            $lmonth = intval(substr($local, 4, 2));
+            $lday = intval(substr($local, 6, 2));
+            $lhour = intval(substr($local, 8, 2));
+            $lminute = intval(substr($local, 10, 2));
+            $lseconds = intval(substr($local, 12, 2));
+            $loffset = intval(substr($boot, 21, 4));
+
+            $byear = intval(substr($boot, 0, 4));
+            $bmonth = intval(substr($boot, 4, 2));
+            $bday = intval(substr($boot, 6, 2));
+            $bhour = intval(substr($boot, 8, 2));
+            $bminute = intval(substr($boot, 10, 2));
+            $bseconds = intval(substr($boot, 12, 2));
+            $boffset = intval(substr($boot, 21, 4));
+
+            if (version_compare($buffer[0]['Version'], "5.1", "<")) { // fix LastBootUpTime on Windows 2000 and older
+                $boffset += $boffset;
+            }
+
+            $localtime = mktime($lhour, $lminute, $lseconds, $lmonth, $lday, $lyear) - $loffset*60;
+            $boottime = mktime($bhour, $bminute, $bseconds, $bmonth, $bday, $byear) - $boffset*60;
+
             $result = $localtime - $boottime;
+
             $this->sys->setUptime($result);
         }
     }
@@ -296,7 +367,8 @@ class WINNT extends OS
     {
         $buffer = $this->_get_Win32_OperatingSystem();
         if ($buffer) {
-            $kernel = $buffer[0]['Version'];
+            $ver = $buffer[0]['Version'];
+            $kernel = $ver;
             if ($buffer[0]['ServicePackMajorVersion'] > 0) {
                 $kernel .= ' SP'.$buffer[0]['ServicePackMajorVersion'];
             }
@@ -309,14 +381,14 @@ class WINNT extends OS
             }
             $this->sys->setDistribution($buffer[0]['Caption']);
 
-            if ((($kernel[1] == '.') && ($kernel[0] <5)) || (substr($kernel, 0, 4) == '5.0.'))
+            if (version_compare($ver, "5.1", "<"))
                 $icon = 'Win2000.png';
-            elseif ((substr($kernel, 0, 4) == '6.0.') || (substr($kernel, 0, 4) == '6.1.'))
-                $icon = 'WinVista.png';
-            elseif ((substr($kernel, 0, 4) == '6.2.') || (substr($kernel, 0, 4) == '6.3.') || (substr($kernel, 0, 4) == '6.4.') || (substr($kernel, 0, 5) == '10.0.'))
-                $icon = 'Win8.png';
-            else
+            elseif (version_compare($ver, "5.1", ">=") && version_compare($ver, "6.0", "<"))
                 $icon = 'WinXP.png';
+            elseif (version_compare($ver, "6.0", ">=") && version_compare($ver, "6.2", "<"))
+                $icon = 'WinVista.png';
+            else
+                $icon = 'Win8.png';
             $this->sys->setDistributionIcon($icon);
         } elseif (CommonFunctions::executeProgram('cmd', '/c ver 2>nul', $ver_value, false)) {
                 if (preg_match("/ReactOS\r?\nVersion\s+(.+)/", $ver_value, $ar_temp)) {
@@ -372,9 +444,25 @@ class WINNT extends OS
                 $loadavg .= $value.' ';
                 $sum += $value;
             }
-            $this->sys->setLoad(trim($loadavg));
-            if (PSI_LOAD_BAR) {
-                $this->sys->setLoadPercent($sum / count($buffer));
+            if ((count($buffer) == 1) && ((isset($buffer[0]['NumberOfLogicalProcessors']) && ($buffer[0]['NumberOfLogicalProcessors'] > 1))
+                   || (isset($buffer[0]['NumberOfCores']) && ($buffer[0]['NumberOfCores'] > 1)))) {
+                $cpubuffer = $this->_get_Win32_PerfFormattedData_PerfOS_Processor();
+                if ($cpubuffer && isset($cpubuffer['cpu_Total'])) {
+                    $this->sys->setLoad($cpubuffer['cpu_Total']);
+                    if (PSI_LOAD_BAR) {
+                        $this->sys->setLoadPercent($cpubuffer['cpu_Total']);
+                    }
+                } else {
+                    $this->sys->setLoad(trim($loadavg));
+                    if (PSI_LOAD_BAR) {
+                        $this->sys->setLoadPercent($sum);
+                    }
+                }
+            } else {
+                $this->sys->setLoad(trim($loadavg));
+                if (PSI_LOAD_BAR) {
+                    $this->sys->setLoadPercent($sum / count($buffer));
+                }
             }
         }
     }
@@ -399,25 +487,52 @@ class WINNT extends OS
                             $allCpus[$coreCount]['Name'] = $buffer2[1];
                         } elseif (preg_match("/^\s*~MHz\s+REG_DWORD\s+(0x.+)\s*$/i", $line, $buffer2)) {
                             $allCpus[$coreCount]['CurrentClockSpeed'] = hexdec($buffer2[1]);
-                        } 
+                        }
                     }
                 }
             }
         }
+
+        $globalcpus = 0;
         foreach ($allCpus as $oneCpu) {
-            $coreCount = 1;
-            if (isset($oneCpu['NumberOfCores'])) {
-                $coreCount = $oneCpu['NumberOfCores'];
+            $cpuCount = 1;
+            if (isset($oneCpu['NumberOfLogicalProcessors'])) {
+                $cpuCount = $oneCpu['NumberOfLogicalProcessors'];
+            } elseif (isset($oneCpu['NumberOfCores'])) {
+                $cpuCount = $oneCpu['NumberOfCores'];
             }
-            for ($i = 0; $i < $coreCount; $i++) {
+            $globalcpus+=$cpuCount;
+        }
+
+        foreach ($allCpus as $oneCpu) {
+            $cpuCount = 1;
+            if (isset($oneCpu['NumberOfLogicalProcessors'])) {
+                $cpuCount = $oneCpu['NumberOfLogicalProcessors'];
+            } elseif (isset($oneCpu['NumberOfCores'])) {
+                $cpuCount = $oneCpu['NumberOfCores'];
+            }
+            for ($i = 0; $i < $cpuCount; $i++) {
                 $cpu = new CpuDevice();
                 if (isset($oneCpu['Name'])) $cpu->setModel($oneCpu['Name']);
-                if (isset($oneCpu['L2CacheSize'])) $cpu->setCache($oneCpu['L2CacheSize'] * 1024);
+                if (isset($oneCpu['L3CacheSize']) && ($oneCpu['L3CacheSize'] > 0)) {
+                    $cpu->setCache($oneCpu['L3CacheSize'] * 1024);
+                } elseif (isset($oneCpu['L2CacheSize'])) {
+                    $cpu->setCache($oneCpu['L2CacheSize'] * 1024);
+                }
                 if (isset($oneCpu['CurrentClockSpeed'])) {
                     $cpu->setCpuSpeed($oneCpu['CurrentClockSpeed']);
                     if (isset($oneCpu['MaxClockSpeed']) && ($oneCpu['CurrentClockSpeed'] < $oneCpu['MaxClockSpeed'])) $cpu->setCpuSpeedMax($oneCpu['MaxClockSpeed']);
                 }
                 if (isset($oneCpu['ExtClock'])) $cpu->setBusSpeed($oneCpu['ExtClock']);
+                if (PSI_LOAD_BAR) {
+                    if ((count($allCpus) == 1) && ($globalcpus > 1)) {
+                        if (($cpubuffer = $this->_get_Win32_PerfFormattedData_PerfOS_Processor()) && (count($cpubuffer) == ($cpuCount+1)) && isset($cpubuffer['cpu'.$i])) {
+                            $cpu->setLoad($cpubuffer['cpu'.$i]);
+                        }
+                    } elseif (count($allCpus) == $globalcpus) {
+                        if (isset($oneCpu['LoadPercentage'])) $cpu->setLoad($oneCpu['LoadPercentage']);
+                    }
+                }
                 $this->sys->setCpus($cpu);
             }
         }
@@ -433,11 +548,12 @@ class WINNT extends OS
         $buffer = $this->_get_Win32_ComputerSystem();
         if ($buffer) {
             $buf = "";
-            if (isset($buffer[0]['Manufacturer'])) {
-                $buf .= ' '.$buffer[0]['Manufacturer'];
+            if (isset($buffer[0]['Manufacturer']) && !preg_match("/^To be filled by O\.E\.M\.$|^System manufacturer$|^Not Specified$/i", $buf2=$buffer[0]['Manufacturer'])) {
+                $buf .= ' '.$buf2;
             }
-            if (isset($buffer[0]['Model'])) {
-                $buf .= ' '.$buffer[0]['Model'];
+
+            if (isset($buffer[0]['Model']) && !preg_match("/^To be filled by O\.E\.M\.$|^System Product Name$|^Not Specified$/i", $buf2=$buffer[0]['Model'])) {
+                $buf .= ' '.$buf2;
             }
             if (trim($buf) != "") {
                 $this->sys->setMachine(trim($buf));
@@ -454,25 +570,32 @@ class WINNT extends OS
     {
         foreach ($this->_devicelist('PCI') as $pciDev) {
             $dev = new HWDevice();
-            $dev->setName($pciDev);
+            $dev->setName($pciDev['Name']);
             $this->sys->setPciDevices($dev);
         }
 
         foreach ($this->_devicelist('IDE') as $ideDev) {
             $dev = new HWDevice();
-            $dev->setName($ideDev);
+            $dev->setName($ideDev['Name']);
             $this->sys->setIdeDevices($dev);
         }
 
         foreach ($this->_devicelist('SCSI') as $scsiDev) {
             $dev = new HWDevice();
-            $dev->setName($scsiDev);
+            $dev->setName($scsiDev['Name']);
             $this->sys->setScsiDevices($dev);
         }
 
         foreach ($this->_devicelist('USB') as $usbDev) {
             $dev = new HWDevice();
-            $dev->setName($usbDev);
+            $dev->setName($usbDev['Name']);
+            if (defined('PSI_SHOW_DEVICES_INFOS') && PSI_SHOW_DEVICES_INFOS) {
+                $dev->setManufacturer($usbDev['Manufacturer']);
+                $dev->setProduct($usbDev['Product']);
+                if (defined('PSI_SHOW_DEVICES_SERIAL') && PSI_SHOW_DEVICES_SERIAL) {
+                    $dev->setSerial($usbDev['Serial']);
+                }
+            }
             $this->sys->setUsbDevices($dev);
         }
     }
@@ -486,13 +609,12 @@ class WINNT extends OS
     {
         if ($this->_wmi) {
             $buffer = $this->_get_Win32_OperatingSystem();
-            if ($buffer && isset($buffer[0]) && isset($buffer[0]['Version']) && preg_match('/^(\d+)\.(\d+)/', $buffer[0]['Version'], $version)
-                &&(($version[1] == 6) && ($version[2] >= 2)) || ($version[1] > 6)) { // minimal windows 2012 or windows 8
+            if ($buffer && isset($buffer[0]) && isset($buffer[0]['Version']) && version_compare($buffer[0]['Version'], "6.2", ">=")) { // minimal windows 2012 or windows 8
                 $allDevices = CommonFunctions::getWMI($this->_wmi, 'Win32_PerfRawData_Tcpip_NetworkAdapter', array('Name', 'BytesSentPersec', 'BytesTotalPersec', 'BytesReceivedPersec', 'PacketsReceivedErrors', 'PacketsReceivedDiscarded', 'CurrentBandwidth'));
             } else {
                 $allDevices = CommonFunctions::getWMI($this->_wmi, 'Win32_PerfRawData_Tcpip_NetworkInterface', array('Name', 'BytesSentPersec', 'BytesTotalPersec', 'BytesReceivedPersec', 'PacketsReceivedErrors', 'PacketsReceivedDiscarded', 'CurrentBandwidth'));
             }
-            /*if (!$allDevices && CommonFunctions::executeProgram('ipconfig', '/all', $devicesbuf, false) && (trim($devicesbuf) !== "")) {
+            /*if (!$allDevices && CommonFunctions::executeProgram('ipconfig', '/all', $devicesbuf, false) && ($devicesbuf!== "")) {
                 $netdevices = preg_split('/^(Ethernet)|(Wireless)|(Tunnel) [^\n]+\n\r\n/m', $devicesbuf, -1, PREG_SPLIT_NO_EMPTY);
                 if (sizeof($netdevices)>1)  foreach ($netdevices as $devnr=>$netdevice) if ($devnr > 0) {
                     $bufe = preg_split("/\r\n   /", trim($netdevice), -1, PREG_SPLIT_NO_EMPTY);
@@ -502,22 +624,34 @@ class WINNT extends OS
                         if (($key == "Media State") && (trim($value) == "Media disconnected")) {
                             $notdiss = false;
                         } elseif ($notdiss && ($key == "Description") && (trim($value) !== "")) {
-                            $allDevices[] = array('Name'=>trim($value), 'BytesSentPersec'=>0, 'BytesTotalPersec'=>0, 'BytesReceivedPersec'=>0, 'PacketsReceivedErrors'=>0, 'PacketsReceivedDiscarded'=>0, 'CurrentBandwidth'=>0); 
+                            $allDevices[] = array('Name'=>trim($value), 'BytesSentPersec'=>0, 'BytesTotalPersec'=>0, 'BytesReceivedPersec'=>0, 'PacketsReceivedErrors'=>0, 'PacketsReceivedDiscarded'=>0, 'CurrentBandwidth'=>0);
                         }
                     }
                 }
             }*/
             if ($allDevices) {
                 $aliases = array();
-                if (preg_match('/^windows-(\d+)$/', $this->_codepage, $codepage) 
-                    && CommonFunctions::executeProgram('cmd', '/c chcp '.$codepage[1].' && reg query HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Network /v Name /s', $strBuf, false) 
-                    && (strlen($strBuf) > 0) 
+                $allAdapters = CommonFunctions::getWMI($this->_wmi, 'Win32_NetworkAdapter', array('Name', 'GUID'));
+                foreach ($allAdapters as $adapter) {
+                    if (isset($adapter['GUID'])) {
+                        $cname = str_replace(array('(', ')', '#'), array('[', ']', '_'), $adapter['Name']); //convert to canonical
+                        if (!isset($aliases[$cname])) { // duplicate checking
+                            $aliases[$cname] = $adapter['GUID'];
+                        } else {
+                            $aliases[$cname] = '';
+                        }
+                    }
+                }
+
+                if (preg_match('/^windows-(\d+)$/', $this->_codepage, $codepage)
+                    && CommonFunctions::executeProgram('cmd', '/c chcp '.$codepage[1].' && reg query HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Network /v Name /s', $strBuf, false)
+                    && (strlen($strBuf) > 0)
                     && preg_match_all('/^HKEY_LOCAL_MACHINE\\\\SYSTEM\\\\CurrentControlSet\\\\Control\\\\Network\\\\{4D36E972-E325-11CE-BFC1-08002BE10318}\\\\({[^{]+})\\\\Connection\r\n\s+Name\s+REG_SZ\s+([^\r\n]+)/mi', $strBuf, $buffer)) {
                     for ($i = 0; $i < sizeof($buffer[0]); $i++) {
                         if (!isset($aliases[$buffer[2][$i]])) { // duplicate checking
                             $aliases[$buffer[2][$i]] = $buffer[1][$i];
-                        } else {
-                            $aliases[$buffer[2][$i]] = "";
+                        } elseif ($aliases[$buffer[2][$i]] !== $buffer[1][$i]) { //duplicate and different
+                            $aliases[$buffer[2][$i]] = '';
                         }
                     }
                 }
@@ -533,9 +667,9 @@ class WINNT extends OS
                                 if (trim($NetworkAdapterConfiguration['MACAddress']) !== "") $macexist = true;
                                 if (defined('PSI_SHOW_NETWORK_INFOS') && PSI_SHOW_NETWORK_INFOS) {
                                     if ((!defined('PSI_HIDE_NETWORK_MACADDR') || !PSI_HIDE_NETWORK_MACADDR)
-                                       && (trim($NetworkAdapterConfiguration['MACAddress']) !== "")) $dev->setInfo(preg_replace('/:/', '-', strtoupper($NetworkAdapterConfiguration['MACAddress'])));
+                                       && (trim($NetworkAdapterConfiguration['MACAddress']) !== "")) $dev->setInfo(str_replace(':', '-', strtoupper($NetworkAdapterConfiguration['MACAddress'])));
                                     if (isset($NetworkAdapterConfiguration['IPAddress']))
-                                        foreach($NetworkAdapterConfiguration['IPAddress'] as $ipaddres)
+                                        foreach ($NetworkAdapterConfiguration['IPAddress'] as $ipaddres)
                                             if (($ipaddres != "0.0.0.0") && ($ipaddres != "::") && !preg_match('/^fe80::/i', $ipaddres))
                                                 $dev->setInfo(($dev->getInfo()?$dev->getInfo().';':'').strtolower($ipaddres));
                                 }
@@ -545,7 +679,7 @@ class WINNT extends OS
                         }
                     }
                     if ($dev->getName() == "") { //no alias or no alias description
-                        $cname=preg_replace('/[^A-Za-z0-9]/', '_', $name); //convert to canonical
+                        $cname = str_replace(array('(', ')', '#'), array('[', ']', '_'), $name); //convert to canonical
                         if (preg_match('/^isatap\.({[A-Fa-f0-9\-]*})/', $name))
                             $name="Microsoft ISATAP Adapter";
                         elseif (preg_match('/\s-\s([^-]*)$/', $name, $ar_name))
@@ -553,17 +687,17 @@ class WINNT extends OS
                         $dev->setName($name);
 
                         foreach ($allNetworkAdapterConfigurations as $NetworkAdapterConfiguration) {
-                            if (preg_replace('/[^A-Za-z0-9]/', '_', $NetworkAdapterConfiguration['Description']) === $cname) {
+                            if (str_replace(array('(', ')', '#'), array('[', ']', '_'), $NetworkAdapterConfiguration['Description']) === $cname) {
                                 $macexist = $macexist || (trim($NetworkAdapterConfiguration['MACAddress']) !== "");
 
                                 if (defined('PSI_SHOW_NETWORK_INFOS') && PSI_SHOW_NETWORK_INFOS) {
                                     if ($dev->getInfo() !== null) {
                                         $dev->setInfo(''); //multiple with the same name
                                     } else {
-                                        if ((!defined('PSI_HIDE_NETWORK_MACADDR') || !PSI_HIDE_NETWORK_MACADDR) 
-                                           && (trim($NetworkAdapterConfiguration['MACAddress']) !== "")) $dev->setInfo(preg_replace('/:/', '-', strtoupper($NetworkAdapterConfiguration['MACAddress'])));
+                                        if ((!defined('PSI_HIDE_NETWORK_MACADDR') || !PSI_HIDE_NETWORK_MACADDR)
+                                           && (trim($NetworkAdapterConfiguration['MACAddress']) !== "")) $dev->setInfo(str_replace(':', '-', strtoupper($NetworkAdapterConfiguration['MACAddress'])));
                                         if (isset($NetworkAdapterConfiguration['IPAddress']))
-                                            foreach($NetworkAdapterConfiguration['IPAddress'] as $ipaddres)
+                                            foreach ($NetworkAdapterConfiguration['IPAddress'] as $ipaddres)
                                                 if (($ipaddres != "0.0.0.0") && !preg_match('/^fe80::/i', $ipaddres))
                                                     $dev->setInfo(($dev->getInfo()?$dev->getInfo().';':'').strtolower($ipaddres));
                                     }
@@ -572,7 +706,7 @@ class WINNT extends OS
                         }
                     }
                     if ($macexist
-                        || ($device['CurrentBandwidth'] > 0)
+                        || ($device['CurrentBandwidth'] >= 1000000)
                         || ($device['BytesTotalPersec'] != 0)
                         || ($device['BytesSentPersec'] != 0)
                         || ($device['BytesReceivedPersec'] != 0)
@@ -615,8 +749,8 @@ class WINNT extends OS
                         $this->sys->setNetDevices($dev);
                     }
                 }
-            } 
-        } elseif (($buffer = $this->_get_systeminfo()) && preg_match('/^(\s+)\[\d+\]:.*\r\n\s+[^\s\[]/m', $buffer, $matches, PREG_OFFSET_CAPTURE)) {
+            }
+        } elseif (($buffer = $this->_get_systeminfo()) && preg_match('/^(\s+)\[\d+\]:[^\r\n]+\r\n\s+[^\s\[]/m', $buffer, $matches, PREG_OFFSET_CAPTURE)) {
             $netbuf = substr($buffer, $matches[0][1]);
             if (preg_match('/^[^\s]/m', $netbuf, $matches2, PREG_OFFSET_CAPTURE)) {
                 $netbuf = substr($netbuf, 0, $matches2[0][1]);
@@ -713,18 +847,19 @@ class WINNT extends OS
             // test for command 'free' on current disk
             if (CommonFunctions::executeProgram('cmd', '/c free 2>nul', $out_value, true)) {
                 for ($letter='A'; $letter!='AA'; $letter++) if (CommonFunctions::executeProgram('cmd', '/c free '.$letter.': 2>nul', $out_value, false)) {
-                    if (preg_match('/\n\s*([\d\.,\xFF]+).*\n\s*([\d\.,\xFF]+).*\n\s*([\d\.\,\xFF]+).*$/', $out_value, $out_dig)) {
-                        $size = preg_replace('/(\.)|(,)|(\xFF)/', '', $out_dig[1]);
-                        $used = preg_replace('/(\.)|(,)|(\xFF)/', '', $out_dig[2]);
-                        $free = preg_replace('/(\.)|(,)|(\xFF)/', '', $out_dig[3]);
+                    $values = preg_replace('/[^\d\n]/', '', $out_value);
+                    if (preg_match('/\n(\d+)\n(\d+)\n(\d+)$/', $values, $out_dig)) {
+                        $size = $out_dig[1];
+                        $used = $out_dig[2];
+                        $free = $out_dig[3];
                         if ($used + $free == $size) {
                             $dev = new DiskDevice();
                             $dev->setMountPoint($letter.":");
                             $dev->setFsType('Unknown');
                             $dev->setName('Unknown');
                             $dev->setTotal($size);
-                            $dev->setFree($free);
                             $dev->setUsed($used);
+                            $dev->setFree($free);
                             $this->sys->setDiskDevices($dev);
                         }
                     }
@@ -772,7 +907,6 @@ class WINNT extends OS
         $this->sys->setProcesses($processes);
     }
 
-
     /**
      * get the information
      *
@@ -782,20 +916,30 @@ class WINNT extends OS
      */
     public function build()
     {
-        $this->_distro();
+        $this->_distro(); //share getDistribution()
         if ($this->sys->getDistribution()=="ReactOS") {
             $this->error->addError("WARN", "The ReactOS version of phpSysInfo is a work in progress, some things currently don't work");
         }
-        $this->_hostname();
-        $this->_users();
-        $this->_machine();
-        $this->_uptime();
-        $this->_cpuinfo();
-        $this->_network();
-        $this->_hardware();
-        $this->_filesystems();
-        $this->_memory();
-        $this->_loadavg();
-        $this->_processes();
+        if (!defined('PSI_ONLY') || PSI_ONLY==='vitals') {
+            $this->_hostname();
+            $this->_users();
+            $this->_uptime();
+            $this->_loadavg();
+            $this->_processes();
+        }
+        if (!defined('PSI_ONLY') || PSI_ONLY==='network') {
+            $this->_network();
+        }
+        if (!defined('PSI_ONLY') || PSI_ONLY==='hardware') {
+            $this->_machine();
+            $this->_cpuinfo();
+            $this->_hardware();
+        }
+        if (!defined('PSI_ONLY') || PSI_ONLY==='filesystem') {
+            $this->_filesystems();
+        }
+        if (!defined('PSI_ONLY') || PSI_ONLY==='memory') {
+            $this->_memory();
+        }
     }
 }

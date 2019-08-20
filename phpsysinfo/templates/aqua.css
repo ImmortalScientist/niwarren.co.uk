@@ -32,7 +32,7 @@ body {
     overflow: auto;
     margin: 0 auto;
     padding: 20px 20px 0 20px;
-    font: 62.5% arial, tahoma, helvetica, sans-serif;
+    font: 75% arial, tahoma, helvetica, sans-serif;
     color: #000;
 }
 
@@ -49,7 +49,7 @@ h1 {
     padding: 10px 10px;
     border-top: 1px solid #2971a7;
     border-bottom: 1px solid #2971a7;
-    font-size: 2em;
+    font-size: 1.67em;
     font-weight: normal;
     color: #fff;
     background: #2971a7;
@@ -58,7 +58,7 @@ h1 {
 h2 {
     padding: 5px 10px;
     font-family: "trebuchet ms";
-    font-size: 1.2em;
+    font-size: 1em;
     font-weight: bold;
     letter-spacing: 0.0em;
     text-transform: uppercase;
@@ -74,12 +74,12 @@ th, td, h3 {
 }
 
 h3 {
-    font-size: 120%;
+    font-size: 100%;
 }
 
 table {
     width: 100%;
-    font-size: 1.2em;
+    font-size: 1em;
     background-color: #fff;
 }
 
@@ -90,13 +90,14 @@ table tfoot td {
 #select {
     text-align: right;
     padding: 10px;
+    font-size: 0.8em;
 }
 
 #select select {
     width: 100px;
 }
 
-#vitals, #network, #memory, #filesystem, #hardware, #temp, #voltage, #fan, #power, #current, #ups {
+#vitals, #network, #memory, #filesystem, #hardware, #temperature, #voltage, #fans, #power, #current, #other, #ups {
     float: left;
     width: 451px;
     margin: 10px 0 0 8px;
@@ -114,7 +115,7 @@ table tfoot td {
     width: 915px;
 }
 
-#filesystemTable thead tr .header {
+#filesystemTable thead tr th {
     cursor: pointer;
 }
 
@@ -159,19 +160,23 @@ table tfoot td {
 
 .treeimg {
     display: table-cell;
-    *float: left;
+    *float: left; /* ie6 ie7 */
     vertical-align: top;
 }
 
 .treespan {
     display: table-cell;
-    *float: left;
+    *float: left; /* ie6 ie7 */
     vertical-align: middle;
 }
 
 .treespanbold {
     font-weight: bold;
     display: table-cell;
-    *float: left;
+    *float: left; /* ie6 ie7 */
     vertical-align: middle;
+}
+
+.tree tr td {
+    cursor: auto;
 }

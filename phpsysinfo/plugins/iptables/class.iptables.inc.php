@@ -1,26 +1,12 @@
 <?php
-
 /**
- * Iptables Plugin
- *
- * PHP version 5
+ * Iptables Plugin, which displays all iptables informations available
  *
  * @category  PHP
  * @package   PSI_Plugin_Iptables
  * @author    erpomata
  * @copyright 2016 phpSysInfo
- * @license   http://opensource.org/licenses/gpl-2.0.php GNU General Public License
- * @version   SVN: $Id: class.iptables.inc.php 661 2016-05-03 11:26:39Z erpomata $
- * @link      http://phpsysinfo.sourceforge.net
- */
-/**
- * Iptables plugin, which displays all iptables informations available
- *
- * @category  PHP
- * @package   PSI_Plugin_Iptables
- * @author    erpomata
- * @copyright 2016 phpSysInfo
- * @license   http://opensource.org/licenses/gpl-2.0.php GNU General Public License
+ * @license   http://opensource.org/licenses/gpl-2.0.php GNU General Public License version 2, or (at your option) any later version
  * @version   Release: 1.0
  * @link      http://phpsysinfo.sourceforge.net
  */
@@ -42,7 +28,7 @@ class iptables extends PSI_Plugin
      * @return array iptables in array with label
      */
 
-    private function iptables()
+    private function getIptables()
     {
         $result = array();
         $i = 0;
@@ -69,7 +55,7 @@ class iptables extends PSI_Plugin
                     $this->_lines = preg_split("/\n/", $lines, -1, PREG_SPLIT_NO_EMPTY);
                 break;
             default:
-                $this->error->addConfigError('__construct()', 'PSI_PLUGIN_IPTABLES_ACCESS');
+                $this->global_error->addConfigError("execute()", "[iptables] ACCESS");
                 break;
         }
     }
@@ -77,14 +63,14 @@ class iptables extends PSI_Plugin
     public function xml()
     {
         if (empty($this->_lines))
-        return $this->xml->getSimpleXmlElement();
+            return $this->xml->getSimpleXmlElement();
 
-        $arrBuff = $this->iptables();
+        $arrBuff = $this->getIptables();
         if (sizeof($arrBuff) > 0) {
             $iptables = $this->xml->addChild("iptables");
             foreach ($arrBuff as $arrValue) {
                 $item = $iptables->addChild('Item');
-                $item->addAttribute('rule', $arrValue['rule']);
+                $item->addAttribute('Rule', $arrValue['rule']);
             }
         }
 

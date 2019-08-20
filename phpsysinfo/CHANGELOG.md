@@ -3,6 +3,56 @@ Changelog of phpSysInfo
 
 http://phpsysinfo.sourceforge.net/
 
+phpSysInfo 3.2.10
+----------------
+ - [UPD] jQuery 3.3.1
+
+ - [ADD] NuTyX to detected distros
+
+ - [FIX] Raid plugin - fixed zpool analize
+
+phpSysInfo 3.2.9
+----------------
+ - [UPD] Greek Translation gr.xml
+
+ - [ADD] BAT plugin - Model, Manufacturer and Serial Number information
+ - [ADD] BAT plugin - SHOW_SERIAL and UPOWER option
+ - [ADD] Springdale Linux to detected distros
+
+ - [NEW] SHOW_DEVICES_INFOS and SHOW_DEVICES_SERIAL options
+ - [NEW] Thinkpad - Lenovo Thinkpad sensors monitoring for Linux
+ - [NEW] StableBit plugin - StableBit Scanner info
+ - [NEW] HyperV plugin - Hyper-V info
+ - [NEW] Raid plugin - software, fake, zpool and megaraid RAID status
+
+ - [DEL] Removed deprecated MDStatus and DMRaid plugins
+
+phpSysInfo 3.2.8
+----------------
+ - [UPD] jQuery 3.2.1
+ - [UPD] French Translation fr.xml
+ - [UPD] CPU usage on WinNT
+ - [UPD] Ukrainian Translation uk.xml
+
+ - [FIX] Fixed incorrect network usage on FreeBSD 11
+ - [FIX] Fixed healthd sensors
+ - [FIX] Fixed displaying for code pages windows-932, windows-949 and windows-950 for WinNT
+
+ - [ADD] Container Linux, PureOS, OpenELEC, LibreELEC and Lakka to detected distros
+ - [ADD] FreeIPMI, IPMItool and IPMIutil other information
+ - [ADD] PS plugin - CPU usage
+ - [ADD] PS plugin - MEMORY_USAGE, CPU_USAGE and SHOW_PID1CHILD_EXPANDED options
+ - [ADD] SMART plugin - WMI access for WinNT
+
+ - [NEW] DATETIME_FORMAT option
+ - [NEW] BLOCKS option - order of data blocks
+ - [NEW] SHOW_NETWORK_ACTIVE_SPEED option
+ - [NEW] Ability to generate only part of the data
+ - [NEW] LOAD_BAR compact mode option
+ - [NEW] PingTest plugin
+
+ - [DEL] Removed deprecated IPMIinfo plugin
+
 phpSysInfo 3.2.7
 ----------------
  - [UPD] jQuery 3.1.1

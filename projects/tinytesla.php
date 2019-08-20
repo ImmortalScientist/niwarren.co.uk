@@ -85,22 +85,23 @@
 
 <!--=========================================================================-->
 
-    <div class="footer-container">
-      <footer class="wrapper">
-        <div class="footerbuttons">
-          <ul class="soc">
-              <li><a class="soc-facebook" href="https://www.facebook.com/immortalscientist"></a></li>
-              <li><a class="soc-linkedin" href="https://uk.linkedin.com/in/nicholas-warren-358244a7"></a></li>
-              <li><a class="soc-github soc-icon-last" href="https://github.com/ImmortalScientist"></a></li>
-          </ul>
-        </div>
-        <p>Copyright N.Warren &copy 2016-<?php echo date("Y")?></p>
-      </footer>
+<div class="footer-container">
+  <footer class="wrapper">
+    <div class="footerbuttons">
+      <ul class="soc">
+        <li><a class="soc-mail" href="mailto:&#109;&#097;&#105;&#108;&#064;&#110;&#105;&#119;&#097;&#114;&#114;&#101;&#110;&#046;&#099;&#111;&#046;&#117;&#107;"></a></li>
+        <li><a class="soc-facebook" href="https://www.facebook.com/immortalscientist"></a></li>
+        <li><a class="soc-linkedin" href="https://uk.linkedin.com/in/nicholas-warren-358244a7"></a></li>
+        <li><a class="soc-github soc-icon-last" href="https://github.com/ImmortalScientist"></a></li>
+      </ul>
     </div>
+    <p>Copyright N.Warren &copy; 2016-<?php echo date("Y")?></p>
+  </footer>
+</div>
 
-        <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
-        <script src="js/plugins.js"></script>
-        <script src="js/main.js"></script>
-    </body>
+    <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+</body>
 </html>

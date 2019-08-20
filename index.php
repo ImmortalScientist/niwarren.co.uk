@@ -48,9 +48,15 @@
             <h2>Welcome to my site!</h2>
             </header>
             <section>
+<<<<<<< HEAD
                 <p>This is my personal website - on it you can find information about projects which I have worked on, and a selection of photographs I have taken in the last few years.<br><br>
                 I am a graduate of the <a href="http://www.reading.ac.uk/">University of Reading</a> in Electronic Engineering (BEng), currently seeking opportunities in Electronic Engineering in the Bristol area.<br>
                 In my spare time, I like playing the French Horn, and tinkering with all sorts of tech. I'm in the early stages of converting an MG TF sports car to electric propulsion, and this project will be documented as best I can here.</p>
+=======
+                <p>This is my personal website - on it you can find information about projects which I have delved into, and a selection of photographs I have taken in the last few years.<br><br>
+                I am a graduate of the <a href="http://www.reading.ac.uk/">University of Reading</a> in Electronic Engineering (BEng). I currently work as a KTP Associate Control Engineer for PB Design and Developments Ltd. in Somerset.<br>
+                In my spare time, I play the French Horn in local bands and orchestras, and enjoy tinkering with Lasers, RC Multirotors and other miscellaneous projects at home.</p>
+>>>>>>> origin/master
                 <?php
                   $str   = @file_get_contents('/proc/uptime');
                   $num   = floatval($str);
@@ -61,6 +67,8 @@
                   echo "This server has been up for " . $days . "d, " . $hours . "h, " . $mins . "m. ";// echo the results
                 ?>
                 <a href="./phpsysinfo/index.php">Server Info.</a>
+                <br>
+                Also check out my <a href="http://niwarren.co.uk:8888">Octoprint Server</a>
                 <br><br>
             </section>
           </article>
@@ -77,12 +85,13 @@
       <footer class="wrapper">
         <div class="footerbuttons">
           <ul class="soc">
+              <li><a class="soc-mail" href="mailto:&#109;&#097;&#105;&#108;&#064;&#110;&#105;&#119;&#097;&#114;&#114;&#101;&#110;&#046;&#099;&#111;&#046;&#117;&#107;"></a></li>
               <li><a class="soc-facebook" href="https://www.facebook.com/immortalscientist"></a></li>
               <li><a class="soc-linkedin" href="https://uk.linkedin.com/in/nicholas-warren-358244a7"></a></li>
               <li><a class="soc-github soc-icon-last" href="https://github.com/ImmortalScientist"></a></li>
           </ul>
         </div>
-        <p>Copyright N.Warren &copy 2016-<?php echo date("Y")?></p>
+        <p>Copyright N.Warren &copy; 2016-<?php echo date("Y")?></p>
       </footer>
     </div>
 

@@ -1,15 +1,15 @@
 function renderPlugin_iptables(data) {
 
     var directives = {
-        rule: {
+        Rule: {
             html: function () {
-                return this["rule"];
+                return this.Rule;
             }
         }
     };
 
-    if ((data['Plugins']['Plugin_iptables'] !== undefined) && (data['Plugins']['Plugin_iptables']['iptables'] !== undefined)) {
-        var upitems = items(data['Plugins']['Plugin_iptables']['iptables']['Item']);
+    if ((data.Plugins.Plugin_iptables !== undefined) && (data.Plugins.Plugin_iptables.iptables !== undefined)) {
+        var upitems = items(data.Plugins.Plugin_iptables.iptables.Item);
         if (upitems.length > 0) {
             var up_memory = [];
             up_memory.push_attrs(upitems);

@@ -8,7 +8,7 @@
  * @package   PSI NetBSD OS class
  * @author    Michael Cramer <BigMichi1@users.sourceforge.net>
  * @copyright 2009 phpSysInfo
- * @license   http://opensource.org/licenses/gpl-2.0.php GNU General Public License
+ * @license   http://opensource.org/licenses/gpl-2.0.php GNU General Public License version 2, or (at your option) any later version
  * @version   SVN: $Id: class.NetBSD.inc.php 287 2009-06-26 12:11:59Z bigmichi1 $
  * @link      http://phpsysinfo.sourceforge.net
  */
@@ -20,7 +20,7 @@
  * @package   PSI NetBSD OS class
  * @author    Michael Cramer <BigMichi1@users.sourceforge.net>
  * @copyright 2009 phpSysInfo
- * @license   http://opensource.org/licenses/gpl-2.0.php GNU General Public License
+ * @license   http://opensource.org/licenses/gpl-2.0.php GNU General Public License version 2, or (at your option) any later version
  * @version   Release: 3.0
  * @link      http://phpsysinfo.sourceforge.net
  */
@@ -115,12 +115,16 @@ class NetBSD extends BSDCommon
             if (preg_match('/^(.*) at (pciide|wdc|atabus|atapibus)[0-9]+ (.*): <(.*)>/', $line, $ar_buf)) {
                 $dev = new HWDevice();
                 $dev->setName($ar_buf[1]);
-                // now loop again and find the capacity
-                foreach ($this->readdmesg() as $line2) {
-                    if (preg_match("/^(".$ar_buf[1]."): (.*), (.*), (.*)MB, .*$/", $line2, $ar_buf_n)) {
-                        $dev->setCapacity($ar_buf_n[4] * 2048 * 1.049);
-                    } elseif (preg_match("/^(".$ar_buf[1]."): (.*) MB, (.*), (.*), .*$/", $line2, $ar_buf_n)) {
-                        $dev->setCapacity($ar_buf_n[2] * 2048);
+                if (defined('PSI_SHOW_DEVICES_INFOS') && PSI_SHOW_DEVICES_INFOS) {
+                    // now loop again and find the capacity
+                    foreach ($this->readdmesg() as $line2) {
+                        if (preg_match("/^(".$ar_buf[1]."): (.*), (.*), (.*)MB, .*$/", $line2, $ar_buf_n)) {
+                            $dev->setCapacity($ar_buf_n[4] * 2048 * 1.049);
+                            break;
+                        } elseif (preg_match("/^(".$ar_buf[1]."): (.*) MB, (.*), (.*), .*$/", $line2, $ar_buf_n)) {
+                            $dev->setCapacity($ar_buf_n[2] * 2048);
+                            break;
+                        }
                     }
                 }
                 $this->sys->setIdeDevices($dev);
@@ -177,9 +181,13 @@ class NetBSD extends BSDCommon
     public function build()
     {
         parent::build();
-        $this->_distroicon();
-        $this->_network();
-        $this->_uptime();
-        $this->_processes();
+        if (!defined('PSI_ONLY') || PSI_ONLY==='vitals') {
+            $this->_distroicon();
+            $this->_uptime();
+            $this->_processes();
+        }
+        if (!defined('PSI_ONLY') || PSI_ONLY==='network') {
+            $this->_network();
+        }
     }
 }
