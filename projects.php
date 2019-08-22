@@ -57,9 +57,8 @@
                 </a>
               </div>
             </div>
-
-            <br><hr><br>
-
+            <br>
+            <hr>
             <h3>Past Projects</h3>
             <div class="imgWrap-container">
 
