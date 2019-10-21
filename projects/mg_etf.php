@@ -43,17 +43,24 @@
 
     <div class="main-container Site-content">
       <div class="main wrapper clearfix">
+        <article>
+          <header>
+            <h2>MG TF Electric Vehicle Conversion Project "Blue Steel"</h2>
+          </header>
+          <section>
+            <span>
+              This page will be used to document the conversion of an almost-classic British sports car (an MG TF) to run electric.
+              So far the project is in early stages, with the following milestones complete.
+              <ul>
+                <li>Donor Car Purchased, October 2019</li>
+              </ul>
 
-          <!-- SITE CONTENT HERE!!! -->
-          This page will be used to document the conversion of an almost-classic British sports car (an MG TF) to run electric.
-          So far the project is in early stages, with the following milestones complete.
-          <ul>
-            <li>Donor Car Purchased, October 2019</li>
-          </ul>
-
-          The project's specifications are summarised on its page at <a href="https://www.evalbum.com/5444">EVAlbum.com</a>
-          <img src="../img/MGTF/DerekFrontOn.jpg" alt="MG TF '115' 1.6L in Trophy Blue, before any conversion work">
-
+              The project's specifications are summarised on its page at <a href="https://www.evalbum.com/5444">EVAlbum.com</a>
+            </span>
+            <hr>
+            <img src="../img/MGTF/Derek-front=small.jpg" alt="MG TF '115' 1.6L in Trophy Blue, before any conversion work">
+          </section>
+        </article>
       </div>
     </div>
 
