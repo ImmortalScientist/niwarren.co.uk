@@ -58,7 +58,7 @@
               The project's specifications are summarised on its page at <a href="https://www.evalbum.com/5444">EVAlbum.com</a>
             </span>
             <hr>
-            <img src="../img/MGTF/Derek-front=small.jpg" alt="MG TF '115' 1.6L in Trophy Blue, before any conversion work">
+            <img src="../img/MGTF/Derek-front-small.jpg" alt="MG TF '115' 1.6L in Trophy Blue, before any conversion work">
           </section>
         </article>
       </div>
