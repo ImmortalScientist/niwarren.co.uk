@@ -45,6 +45,14 @@
       <div class="main wrapper clearfix">
 
           <!-- SITE CONTENT HERE!!! -->
+          This page will be used to document the conversion of an almost-classic British sports car (an MG TF) to run electric.
+          So far the project is in early stages, with the following milestones complete.
+          <ul>
+            <li>Donor Car Purchased, October 2019</li>
+          </ul>
+
+          The project's specifications are summarised on its page at <a href="https://www.evalbum.com/5444">EVAlbum.com</a>
+          <img src="../img/MGTF/DerekFrontOn.jpg" alt="MG TF '115' 1.6L in Trophy Blue, before any conversion work">
 
       </div>
     </div>
