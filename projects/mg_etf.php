@@ -53,6 +53,7 @@
               So far the project is in early stages, with the following milestones complete.
               <ul>
                 <li>Donor Car Purchased, October 2019</li>
+                <li>Batteries acquired, January 2020</li>
               </ul>
 
               The project's specifications are summarised on its page at <a href="https://www.evalbum.com/5444">EVAlbum.com</a>
