@@ -46,6 +46,7 @@
         <article class="leftpage">
           <header>
             <h2>Welcome to my site!</h2>
+            <h3>This is my Old website, still online but no longer maintained. My new shiny Wordpress site is accessible <a href="niwarren.co.uk">here</a></h3>
             </header>
             <section>
                 <p>This is my personal website - on it you can find information about projects which I have worked on, and a selection of photographs I have taken in the last few years.<br><br>
