@@ -95,7 +95,7 @@
         <li><a class="soc-github soc-icon-last" href="https://github.com/ImmortalScientist"></a></li>
       </ul>
     </div>
-    <p>Copyright N.Warren &copy; 2016-<?php echo date("Y")?></p>
+    <p>Copyright N.Warren &copy; 2016-2020</p>
   </footer>
 </div>
 
